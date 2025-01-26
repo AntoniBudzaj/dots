@@ -17,9 +17,11 @@ return {
 				"html",
 				"lua_ls",
 				"clangd",
-        "gopls",
-        "tailwindcss",
-        "cssls"
+				"gopls",
+				"tailwindcss",
+				"cssls",
+				"pyright",
+				"neocmake",
 			},
 		},
 	},
@@ -45,25 +47,31 @@ return {
 			lspconfig.clangd.setup({
 				capabilities = capabilities,
 			})
-      lspconfig.tailwindcss.setup({
-        capabilities = capabilities,
-      })
-      lspconfig.cssls.setup({
-        capabilities = capabilities,
-      })
-      lspconfig.gopls.setup({
-        capabilities = capabilities,
-      })
-      vim.diagnostic.config({
-  virtual_text = false
-})
+			lspconfig.tailwindcss.setup({
+				capabilities = capabilities,
+			})
+			lspconfig.cssls.setup({
+				capabilities = capabilities,
+			})
+			lspconfig.gopls.setup({
+				capabilities = capabilities,
+			})
+			lspconfig.pyright.setup({
+				capabilities = capabilities,
+			})
+      lspconfig.neocmake.setup({
+				capabilities = capabilities,
+			})
+			vim.diagnostic.config({
+				virtual_text = false,
+			})
 
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
 			vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {})
 			vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, {})
 			vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
-	    vim.o.updatetime = 250
-vim.cmd [[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]
-    end,
-  },
+			vim.o.updatetime = 250
+			vim.cmd([[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]])
+		end,
+	},
 }

@@ -19,7 +19,7 @@ return {
 						callback = function()
 							vim.lsp.buf.format({
 								bufnr = bufnr,
----@diagnostic disable-next-line: redefined-local
+								---@diagnostic disable-next-line: redefined-local
 								filter = function(client)
 									return client.name == "null-ls"
 								end,

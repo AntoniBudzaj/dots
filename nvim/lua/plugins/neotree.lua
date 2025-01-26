@@ -9,14 +9,14 @@ return {
 		-- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
 	},
 	config = function()
-		vim.keymap.set("n", "<C-n>", ":Neotree toggle<CR>", {})
+		vim.keymap.set("n", "<A-1>", ":Neotree toggle<CR>", {})
 		vim.keymap.set("n", "<leader>e", ":Neotree focus<CR>", {})
-    require("neo-tree").setup({
-    window = {
-            mappings = {
-              [","] = "navigate_up",
-        }
-      }
-    })    
-  end,
+		require("neo-tree").setup({
+			window = {
+				mappings = {
+					[","] = "navigate_up",
+				},
+			},
+		})
+	end,
 }

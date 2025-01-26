@@ -4,6 +4,7 @@ vim.cmd("set softtabstop=2")
 vim.cmd("set shiftwidth=2")
 vim.g.mapleader = " "
 vim.g.background = "light"
+vim.api.nvim_set_option("clipboard", "unnamedplus")
 
 vim.opt.swapfile = false
 vim.opt.termguicolors = true
