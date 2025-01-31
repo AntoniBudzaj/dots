@@ -9,7 +9,7 @@ background_opacity 0.85
 
 hide_window_decorations yes
 confirm_os_window_close 0
-wayland_titlebar_color background
+# wayland_titlebar_color background
 shell_integration enabled no-rc
 linux_display_server x11
 
@@ -18,3 +18,9 @@ linux_display_server x11
 include kitty-themes/themes/Wombat.conf
 END_KITTY_THEME
 
+
+
+# BEGIN_KITTY_THEME
+# Tokyo Night
+include current-theme.conf
+# END_KITTY_THEME
