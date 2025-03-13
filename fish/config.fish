@@ -5,10 +5,6 @@ zoxide init fish | source
 
 end
 
-source "$HOME/.cargo/env.fish"
-
-fish_add_path /home/antek/.spicetify
-
 # bun
 set --export BUN_INSTALL "$HOME/.bun"
 set --export PATH $BUN_INSTALL/bin $PATH
@@ -16,3 +12,10 @@ set --export PATH $HOME/.config/rofi/scripts $PATH
 
 alias zen='flatpak run io.github.zen_browser.zen'
 alias vim='nvim'
+
+# pnpm
+set -gx PNPM_HOME "/home/antek/.local/share/pnpm"
+if not string match -q -- $PNPM_HOME $PATH
+  set -gx PATH "$PNPM_HOME" $PATH
+end
+# pnpm end

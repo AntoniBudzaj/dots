@@ -8,6 +8,17 @@ return {
 		end,
 	},
 	{
+		"luckasRanarison/tailwind-tools.nvim",
+		name = "tailwind-tools",
+		build = ":UpdateRemotePlugins",
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter",
+			"nvim-telescope/telescope.nvim", -- optional
+			"neovim/nvim-lspconfig", -- optional
+		},
+		opts = {}, -- your configuration
+	},
+	{
 		"williamboman/mason-lspconfig.nvim",
 		lazy = false,
 		opts = {
@@ -22,6 +33,7 @@ return {
 				"cssls",
 				"pyright",
 				"neocmake",
+				"harper_ls",
 			},
 		},
 	},
@@ -59,7 +71,10 @@ return {
 			lspconfig.pyright.setup({
 				capabilities = capabilities,
 			})
-      lspconfig.neocmake.setup({
+			lspconfig.neocmake.setup({
+				capabilities = capabilities,
+			})
+			lspconfig.tailwindcss.setup({
 				capabilities = capabilities,
 			})
 			vim.diagnostic.config({
