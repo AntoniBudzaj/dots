@@ -23,7 +23,3 @@ vim.keymap.set("n", "<S-Tab>", "<Cmd>BufferLineCyclePrev<CR>", {})
 
 -- oil keymaps
 vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
-
--- picker keymaps
---
--- vim.keymap.set("n", "<leader>pp", "<CMD>Picker<CR>", { desc = "Open picker" })

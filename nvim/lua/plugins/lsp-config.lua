@@ -19,6 +19,9 @@ return {
 		opts = {}, -- your configuration
 	},
 	{
+		"nvim-java/nvim-java",
+	},
+	{
 		"williamboman/mason-lspconfig.nvim",
 		lazy = false,
 		opts = {
@@ -31,9 +34,6 @@ return {
 				"gopls",
 				"tailwindcss",
 				"cssls",
-				"pyright",
-				"neocmake",
-				"harper_ls",
 			},
 		},
 	},
@@ -68,13 +68,10 @@ return {
 			lspconfig.gopls.setup({
 				capabilities = capabilities,
 			})
-			lspconfig.pyright.setup({
-				capabilities = capabilities,
-			})
-			lspconfig.neocmake.setup({
-				capabilities = capabilities,
-			})
 			lspconfig.tailwindcss.setup({
+				capabilities = capabilities,
+			})
+			lspconfig.jdtls.setup({
 				capabilities = capabilities,
 			})
 			vim.diagnostic.config({

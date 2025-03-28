@@ -12,6 +12,7 @@ set --export PATH $HOME/.config/rofi/scripts $PATH
 
 alias zen='flatpak run io.github.zen_browser.zen'
 alias vim='nvim'
+alias zed='flatpak run dev.zed.Zed'
 
 # pnpm
 set -gx PNPM_HOME "/home/antek/.local/share/pnpm"
