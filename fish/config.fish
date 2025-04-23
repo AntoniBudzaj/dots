@@ -1,14 +1,9 @@
 if status is-interactive
   set -g fish_greeting
-  starship init fish | source
 zoxide init fish | source
+oh-my-posh init fish --config ~/.config/fish/tokyonight.omp.json | source
 
 end
-
-# bun
-set --export BUN_INSTALL "$HOME/.bun"
-set --export PATH $BUN_INSTALL/bin $PATH
-set --export PATH $HOME/.config/rofi/scripts $PATH
 
 alias zen='flatpak run io.github.zen_browser.zen'
 alias vim='nvim'

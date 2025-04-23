@@ -1,1 +1,0 @@
-source "/home/antek/.deno/env.fish"
