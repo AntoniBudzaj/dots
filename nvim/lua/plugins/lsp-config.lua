@@ -1,5 +1,17 @@
 return {
-
+	{
+		"nvim-treesitter/nvim-treesitter",
+		config = function()
+			require("nvim-treesitter.configs").setup({
+				ensure_installed = { "svelte", "html", "css", "javascript", "typescript" },
+				highlight = {
+					enable = true,
+					additional_vim_regex_highlighting = false,
+				},
+				autotag = { enable = true },
+			})
+		end,
+	},
 	{
 		"williamboman/mason.nvim",
 		lazy = false,

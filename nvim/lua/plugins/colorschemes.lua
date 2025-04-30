@@ -64,7 +64,7 @@ return {
 		config = function()
 			require("catppuccin").setup({
 				flavor = "frappe",
-				transparent_background = true,
+				transparent_background = false,
 			})
 		end,
 	},
