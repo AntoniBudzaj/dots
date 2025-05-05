@@ -1,5 +1,6 @@
 {
-  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "$schema":
+    "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
   "blocks": [
     {
       "alignment": "left",
@@ -17,13 +18,15 @@
         {
           "foreground": "#7eb8da",
           "style": "plain",
-          "template": "[<#ffffff>\ueb99</> {{ .UserName }} :: <#ffffff>\uf108</> {{ .HostName }}]",
+          "template":
+            "[<#ffffff>\ueb99</> {{ .UserName }} :: <#ffffff>\uf108</> {{ .HostName }}]",
           "type": "session"
         },
         {
           "foreground": "#be9ddf",
           "style": "diamond",
-          "template": "[<#ffffff>\ue266</> RAM: {{ (div ((sub .PhysicalTotalMemory .PhysicalAvailableMemory)|float64) 1073741824.0) }}/{{ (div .PhysicalTotalMemory 1073741824.0) }}GB]",
+          "template":
+            "[<#ffffff>\ue266</> RAM: {{ (div ((sub .PhysicalTotalMemory .PhysicalAvailableMemory)|float64) 1073741824.0) }}/{{ (div .PhysicalTotalMemory 1073741824.0) }}GB]",
           "type": "sysinfo"
         },
         {
@@ -39,7 +42,8 @@
             "discharging_icon": "<#ffff00>\uf244</> "
           },
           "style": "plain",
-          "template": "[{{ if not .Error }}{{ .Icon }}{{ .Percentage }}{{ end }}{{ .Error }}\uf295]",
+          "template":
+            "[{{ if not .Error }}{{ .Icon }}{{ .Percentage }}{{ end }}{{ .Error }}\uf295]",
           "type": "battery"
         },
         {
@@ -63,37 +67,43 @@
         {
           "foreground": "#7eb8da",
           "style": "diamond",
-          "template": "[<#ffffff>\uebd8</> Subscription: <#ffff00>{{ .Name }}</>]",
+          "template":
+            "[<#ffffff>\uebd8</> Subscription: <#ffff00>{{ .Name }}</>]",
           "type": "az"
         },
         {
           "foreground": "#7eb8da",
           "style": "diamond",
-          "template": "[<#ffffff>\uebd8</> Azure Developer CLI Environment: <#ffff00>{{ .DefaultEnvironment  }}</> :: <#ffff00>{{ .Version }}</>]",
+          "template":
+            "[<#ffffff>\uebd8</> Azure Developer CLI Environment: <#ffff00>{{ .DefaultEnvironment  }}</> :: <#ffff00>{{ .Version }}</>]",
           "type": "azd"
         },
         {
           "foreground": "#7eb8da",
           "style": "diamond",
-          "template": "[<#ffffff>\uf270</> <#ffff00>{{ .Profile }}</>{{if .Region}}@<#ffff00>{{ .Region }}</>{{ end }}]",
+          "template":
+            "[<#ffffff>\uf270</> <#ffff00>{{ .Profile }}</>{{if .Region}}@<#ffff00>{{ .Region }}</>{{ end }}]",
           "type": "aws"
         },
         {
           "foreground": "#7eb8da",
           "style": "diamond",
-          "template": "[{{ if .Error }}{{ .Error }}{{ else }}<#ffffff>\uf1a0</> <#ffff00>{{ .Project }}</> :: <#ffff00>{{.Account}}</>{{ end }}]",
+          "template":
+            "[{{ if .Error }}{{ .Error }}{{ else }}<#ffffff>\uf1a0</> <#ffff00>{{ .Project }}</> :: <#ffff00>{{.Account}}</>{{ end }}]",
           "type": "gcp"
         },
         {
           "foreground": "#ffa5d8",
           "style": "diamond",
-          "template": "[<#ffffff>\uf10fe</> <#ffff00>{{.Context}}</>{{if .Namespace}} :: <#ffff00>{{.Namespace}}</>{{end}}]",
+          "template":
+            "[<#ffffff>\uf10fe</> <#ffff00>{{.Context}}</>{{if .Namespace}} :: <#ffff00>{{.Namespace}}</>{{end}}]",
           "type": "kubectl"
         },
         {
           "foreground": "#ffa5d8",
           "style": "diamond",
-          "template": "[{{ if .Error }}{{ .Error }}{{ else }}{{ if .Name }}<#ffffff>\uf487</> {{ .Name }}{{ end }}{{ if .Target }} {{ .Target }}{{ end }}{{ end }}]",
+          "template":
+            "[{{ if .Error }}{{ .Error }}{{ else }}{{ if .Name }}<#ffffff>\uf487</> {{ .Name }}{{ end }}{{ if .Target }} {{ .Target }}{{ end }}{{ end }}]",
           "type": "project"
         }
       ],
@@ -121,7 +131,8 @@
             "fetch_upstream_icon": true
           },
           "style": "plain",
-          "template": "[<#ffffff>{{ .UpstreamIcon }} </>{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} <#ffffff>\uf044</> {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }} <#ffffff>\uf046</> {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }} <#ffffff>\ueb4b</> {{ .StashCount }}{{ end }}]",
+          "template":
+            "[<#ffffff>{{ .UpstreamIcon }} </>{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} <#ffffff>\uf044</> {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }} <#ffffff>\uf046</> {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }} <#ffffff>\ueb4b</> {{ .StashCount }}{{ end }}]",
           "type": "git"
         }
       ],
@@ -132,6 +143,16 @@
       "newline": true,
       "leading_diamond": "<#7eb8da>\u2514\u2500</>",
       "segments": [
+        {
+          "type": "python",
+          "style": "diamond",
+          "powerline_symbol": "\uE0B0",
+          "foreground": "#ffa5d8",
+          "template": "[\uE235 {{ .Full }} {{ if .Venv }}{{ .Venv }}{{ end }}]",
+          "properties": {
+            "fetch_virtual_env": true
+          }
+        },
         {
           "style": "diamond",
           "template": "<#ffff00>[#]</>",
