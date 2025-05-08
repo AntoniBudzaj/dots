@@ -7,7 +7,7 @@ return {
 		-- your configuration comes here
 		-- or leave it empty to use the default settings
 		-- refer to the configuration section below
-		bigfile = { enabled = true },
+		bigfile = { enabled = false },
 		dashboard = {
 			enabled = true,
 		},
@@ -20,5 +20,6 @@ return {
 		statuscolumn = { enabled = true },
 		words = { enabled = true },
 		terminal = { enabled = true },
+		image = { enabled = true },
 	},
 }

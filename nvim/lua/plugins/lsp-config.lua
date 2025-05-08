@@ -8,6 +8,7 @@ return {
 					enable = true,
 					additional_vim_regex_highlighting = false,
 				},
+				autotag = { enable = true },
 			})
 		end,
 	},
@@ -45,7 +46,6 @@ return {
 				"gopls",
 				"tailwindcss",
 				"cssls",
-				"pyright",
 			},
 		},
 	},
@@ -86,9 +86,6 @@ return {
 			lspconfig.jdtls.setup({
 				capabilities = capabilities,
 			})
-      lspconfig.pyright.setup({
-        capabilities = capabilities
-      })
 			vim.diagnostic.config({
 				virtual_text = false,
 			})
