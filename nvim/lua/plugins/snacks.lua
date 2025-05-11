@@ -22,4 +22,13 @@ return {
 		terminal = { enabled = true },
 		image = { enabled = true },
 	},
+	keys = {
+		{
+			"<C-w>",
+			function()
+				Snacks.bufdelete()
+			end,
+			desc = "Delete Buffer",
+		},
+	},
 }
