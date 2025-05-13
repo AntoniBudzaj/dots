@@ -23,3 +23,24 @@ vim.keymap.set("n", "<S-Tab>", "<Cmd>BufferLineCyclePrev<CR>", {})
 
 -- oil keymaps
 vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+
+-- diagnostics
+vim.keymap.set("n", "<Space>td", "<CMD>Telescope diagnostics<CR>", { desc = "Telescope diagnostics" })
+
+--dashboard
+vim.keymap.set("n", "<C-d>", "<CMD>lua Snacks.dashboard.open()<CR>", { desc = "Open dashoard" })
+
+--lsp
+vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
+vim.keymap.set("n", "<F12>", vim.lsp.buf.definition, {})
+vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, {})
+vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
+
+vim.o.updatetime = 1000
+
+vim.keymap.set(
+	"n",
+	"di",
+	"<CMD>lua vim.diagnostic.open_float(nil, { focus = false })<CR>",
+	{ desc = "Open diagnostics floating inspection" }
+)
