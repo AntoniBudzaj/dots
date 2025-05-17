@@ -8,39 +8,3 @@ vim.opt.clipboard = "unnamedplus"
 vim.wo.number = true
 vim.opt.swapfile = false
 vim.opt.termguicolors = true
-
--- Navigate vim panes better
-vim.keymap.set("n", "<c-k>", ":wincmd k<CR>")
-vim.keymap.set("n", "<c-j>", ":wincmd j<CR>")
-vim.keymap.set("n", "<c-h>", ":wincmd h<CR>")
-vim.keymap.set("n", "<c-l>", ":wincmd l<CR>")
-vim.api.nvim_set_keymap("n", "<Leader>sv", ":vsplit<CR>", { noremap = true, silent = true })
---copilot keymaps
-vim.keymap.set("n", "<leader>c", "<cmd>CopilotChatToggle<CR>", {})
---bufferline keymaps
-vim.keymap.set("n", "<Tab>", "<Cmd>BufferLineCycleNext<CR>", {})
-vim.keymap.set("n", "<S-Tab>", "<Cmd>BufferLineCyclePrev<CR>", {})
-
--- oil keymaps
-vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
-
--- diagnostics
-vim.keymap.set("n", "<Space>td", "<CMD>Telescope diagnostics<CR>", { desc = "Telescope diagnostics" })
-
---dashboard
-vim.keymap.set("n", "<C-d>", "<CMD>lua Snacks.dashboard.open()<CR>", { desc = "Open dashoard" })
-
---lsp
-vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
-vim.keymap.set("n", "<F12>", vim.lsp.buf.definition, {})
-vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, {})
-vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
-
-vim.o.updatetime = 1000
-
-vim.keymap.set(
-	"n",
-	"di",
-	"<CMD>lua vim.diagnostic.open_float(nil, { focus = false })<CR>",
-	{ desc = "Open diagnostics floating inspection" }
-)
