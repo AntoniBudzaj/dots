@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Name=Cursor
+Comment=AI sploppy toppy on my poppy :3
+Exec=/home/antek/.local/bin/cursor --no-sandbox %u
+Terminal=false
+Type=Application
+Icon=/home/antek/.local/share/cursor/icon.png
+StartupWMClass=cursor
+Categories=Development;IDE;
