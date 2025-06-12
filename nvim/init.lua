@@ -4,4 +4,4 @@ require("vim-options")
 
 require("keymaps")
 
-vim.cmd([[colorscheme catppuccin]])
+vim.cmd([[colorscheme tokyonight]])

@@ -7,7 +7,12 @@ return {
 		opts = {},
 		config = function()
 			require("tokyonight").setup({
-				transparent = true,
+				style = "night",
+				on_colors = function(colors)
+					colors.green = "#6cebbc"
+					colors.orange = colors.magenta
+					colors.yellow = "#f9e2af"
+				end,
 			})
 		end,
 	},

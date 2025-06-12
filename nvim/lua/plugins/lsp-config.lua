@@ -1,5 +1,30 @@
 return {
 	{
+		"norcalli/nvim-colorizer.lua",
+		config = function()
+			require("colorizer").setup({
+				filetypes = {
+					"css",
+					"scss",
+					"html",
+					"javascript",
+					"typescript",
+					"svelte",
+					"vue",
+					"javascriptreact",
+					"typescriptreact",
+					"lua",
+				},
+				user_default_options = {
+					names = false, -- Disable color names
+					RGB = true, -- Enable RGB color codes
+					RRGGBB = true, -- Enable RRGGBB color codes
+					RRGGBBAA = true, -- Enable RRGGBBAA color codes
+				},
+			})
+		end,
+	},
+	{
 		"nvim-treesitter/nvim-treesitter",
 		config = function()
 			require("nvim-treesitter.configs").setup({
