@@ -53,6 +53,8 @@ clipboard-paste-protection = false
 window-decoration = false
 shell-integration = fish
 gtk-adwaita = true
+window-padding-x =0
+window-padding-y = 0
 
 # Transparency
 background-opacity = 0.8
@@ -67,3 +69,13 @@ keybind = alt+6=unbind
 keybind = alt+7=unbind
 keybind = alt+8=unbind
 keybind = alt+9=unbind
+
+keybind = ctrl+alt+v=new_split:right
+keybind = ctrl+alt+h=new_split:down
+keybind = shift+right=adjust_selection:right
+keybind = shift+left=adjust_selection:left
+keybind = ctrl+shift+w=close_surface
+keybind = ctrl+shift+left=goto_split:left
+keybind = ctrl+shift+right=goto_split:right
+keybind = ctrl+shift+up=goto_split:up
+keybind = ctrl+shift+down=goto_split:down
