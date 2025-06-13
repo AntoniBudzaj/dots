@@ -69,6 +69,7 @@ return {
 				"tailwindcss",
 				"cssls",
 				"pyright",
+				"jdtls",
 			},
 		},
 	},

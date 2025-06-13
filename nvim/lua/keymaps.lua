@@ -24,7 +24,7 @@ vim.keymap.set("n", "<C-d>", "<CMD>lua Snacks.dashboard.open()<CR>", { desc = "O
 vim.keymap.set("n", "K", vim.lsp.buf.hover, {}) -- inspect
 vim.keymap.set("n", "<F12>", vim.lsp.buf.definition, {}) -- go to definition
 vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, {}) -- go to references
-vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {}) -- code action
+vim.keymap.set("n", "<M-CR>", vim.lsp.buf.code_action, {}) -- code action
 --diagnostics
 vim.keymap.set(
 	"n",
