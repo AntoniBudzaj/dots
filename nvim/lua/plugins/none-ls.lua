@@ -29,7 +29,5 @@ return {
 				end
 			end,
 		})
-
-		vim.keymap.set("n", "<leader>cf", vim.lsp.buf.format, {})
 	end,
 }
