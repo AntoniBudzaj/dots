@@ -49,3 +49,6 @@ vim.keymap.set(
 vim.keymap.set("n", "<leader>gb", "<CMD>lua Snacks.picker.git_branches()<CR>", { desc = "open git branches" })
 
 vim.keymap.set("n", "<leader>pn", "<CMD>lua Snacks.picker.notifications()<CR>", { desc = "open notification history" })
+
+--lazygit
+vim.keymap.set("n", "<leader>lg", "<CMD>lua Snacks.lazygit()<CR>", { desc = "Open lazygit" })
