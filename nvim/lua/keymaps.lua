@@ -36,6 +36,7 @@ vim.keymap.set(
 vim.keymap.set("n", "<M-1>", "<CMD>lua Snacks.picker.explorer()<CR>", { desc = "Open file picker" })
 vim.keymap.set("n", "<leader>p", "<CMD>lua Snacks.picker()<CR>", { desc = "Open picker" })
 vim.keymap.set("n", "<leader>pg", "<CMD>lua Snacks.picker.grep()<CR>", { desc = "Open grep picker" })
+-- git keymaps
 vim.keymap.set("n", "<leader>gs", "<CMD>lua Snacks.picker.git_status<CR>", { desc = "open git status" })
 vim.keymap.set("n", "<leader>gd", "<CMD>lua Snacks.picker.git_diff()<CR>", { desc = "open git commits" })
 vim.keymap.set("n", "<leader>gl", "<CMD>lua Snacks.picker.git_log()<CR>", { desc = "open git log" })
@@ -45,4 +46,6 @@ vim.keymap.set(
 	"<CMD>lua Snacks.picker.git_log_file()<CR>",
 	{ desc = "open git logs on current file" }
 )
+vim.keymap.set("n", "<leader>gb", "<CMD>lua Snacks.picker.git_branches()<CR>", { desc = "open git branches" })
+
 vim.keymap.set("n", "<leader>pn", "<CMD>lua Snacks.picker.notifications()<CR>", { desc = "open notification history" })

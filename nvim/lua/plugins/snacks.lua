@@ -19,6 +19,7 @@ return {
 		words = { enabled = true },
 		terminal = { enabled = true },
 		image = { enabled = true },
+		lazygit = require("plugins.snacks.lazygit"),
 	},
 	keys = {
 		{
