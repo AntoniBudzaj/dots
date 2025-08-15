@@ -46,7 +46,7 @@
 
 font-family = {{ terminal_font }}
 font-size = 12
-scrollback-limit = 10_000
+scrollback-limit = 10000
 theme = catppuccin-frappe
 clipboard-read = allow
 clipboard-paste-protection = false

@@ -7,13 +7,6 @@ return {
 					"css",
 					"scss",
 					"html",
-					"javascript",
-					"typescript",
-					"svelte",
-					"vue",
-					"javascriptreact",
-					"typescriptreact",
-					"lua",
 				},
 				user_default_options = {
 					names = false, -- Disable color names
@@ -53,7 +46,21 @@ return {
 			"nvim-telescope/telescope.nvim", -- optional
 			"neovim/nvim-lspconfig", -- optional
 		},
-		opts = {}, -- your configuration
+		opts = {
+			extension = {
+				queries = {
+					"scss",
+					"css",
+					"html",
+					"javascript",
+					"typescript",
+					"svelte",
+					"vue",
+					"javascriptreact",
+					"typescriptreact",
+				},
+			},
+		}, -- your configuration
 	},
 	{
 		"williamboman/mason-lspconfig.nvim",
@@ -69,7 +76,6 @@ return {
 				"tailwindcss",
 				"cssls",
 				"pyright",
-				"jdtls",
 			},
 		},
 	},

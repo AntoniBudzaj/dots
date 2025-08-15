@@ -1,3 +1,14 @@
+local cmp = require("cmp")
+
+cmp.setup({
+	mapping = {
+		["<Tab>"] = cmp.mapping.select_next_item(),
+		["<S-Tab>"] = cmp.mapping.select_prev_item(),
+		["<CR>"] = cmp.mapping.confirm({ select = true }),
+		["<C-Space>"] = cmp.mapping.complete(),
+	},
+})
+
 -- Navigate vim panes better
 vim.keymap.set("n", "<c-k>", ":wincmd k<CR>")
 vim.keymap.set("n", "<c-j>", ":wincmd j<CR>")
@@ -27,7 +38,7 @@ vim.keymap.set("n", "<C-M-CR>", vim.lsp.buf.format, {})
 --diagnostics
 vim.keymap.set(
 	"n",
-	"di",
+	"<leader>di",
 	"<CMD>lua vim.diagnostic.open_float(nil, { focus = false })<CR>",
 	{ desc = "Open diagnostics floating inspection" }
 )
