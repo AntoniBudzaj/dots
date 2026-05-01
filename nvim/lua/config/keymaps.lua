@@ -23,9 +23,6 @@ vim.keymap.set("n", "<C-w>", "<Cmd>lua Snacks.bufdelete()<CR>", { desc = "Delete
 -- oil keymaps
 vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
--- diagnostics
-vim.keymap.set("n", "<Space>td", "<CMD>Telescope diagnostics<CR>", { desc = "Telescope diagnostics" })
-
 --dashboard
 vim.keymap.set("n", "<C-d>", "<CMD>lua Snacks.dashboard.open()<CR>", { desc = "Open dashoard" })
 
@@ -42,11 +39,18 @@ vim.keymap.set(
 	"<CMD>lua vim.diagnostic.open_float(nil, { focus = false })<CR>",
 	{ desc = "Open diagnostics floating inspection" }
 )
+vim.keymap.set("n", "<Space>pd", "<CMD>lua Snacks.picker.diagnostics()<CR>", { desc = "Picker diagnostics" })
 
 --picker
 vim.keymap.set("n", "<M-1>", "<CMD>lua Snacks.picker.explorer()<CR>", { desc = "Open file picker" })
 vim.keymap.set("n", "<leader>p", "<CMD>lua Snacks.picker()<CR>", { desc = "Open picker" })
 vim.keymap.set("n", "<leader>pg", "<CMD>lua Snacks.picker.grep()<CR>", { desc = "Open grep picker" })
+vim.keymap.set(
+	"n",
+	"<leader>pf",
+	"<CMD>lua Snacks.picker.files()<CR>",
+	{ desc = "search through files in current dir" }
+)
 -- git keymaps
 vim.keymap.set("n", "<leader>gs", "<CMD>lua Snacks.picker.git_status<CR>", { desc = "open git status" })
 vim.keymap.set("n", "<leader>gd", "<CMD>lua Snacks.picker.git_diff()<CR>", { desc = "open git commits" })

@@ -44,7 +44,7 @@ local colors = {
 		ignore = "#545c7e",
 	},
   green = "#9ece6a",
-	green1 = "#73daca",
+	green1 = "#73dafa",
 	green2 = "#41a6b5",
 	hint = "#1abc9c",
 	info = "#0db9d7",
@@ -56,7 +56,7 @@ local colors = {
 	rainbow = { "#7aa2f7", "#e0af68", "#9ece6a", "#1abc9c", "#bb9af7", "#9d7cd8", "#ff9e64", "#f7768e" },
 	red = "#f7768e",
 	red1 = "#db4b4b",
-	teal = "#1abc9c",
+	teal = "#1adc9c",
 	terminal = {
 		black = "#15161e",
 		black_bright = "#414868",
@@ -93,13 +93,13 @@ local highlights = {
 		fg = "#db4b4b",
 	},
 	["@comment.hint"] = {
-		fg = "#1abc9c",
+		fg = "#1adc9c",
 	},
 	["@comment.info"] = {
 		fg = "#0db9d7",
 	},
 	["@comment.note"] = {
-		fg = "#1abc9c",
+		fg = "#1adc9c",
 	},
 	["@comment.todo"] = {
 		fg = "#7aa2f7",

@@ -1,7 +1,7 @@
 require("config.lazy")
 
-require("vim-options")
+require("config.options")
 
-require("keymaps")
+require("config.keymaps")
 
-vim.cmd([[colorscheme tokyonight]])
+

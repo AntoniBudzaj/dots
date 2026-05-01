@@ -9,3 +9,4 @@ vim.opt.clipboard = "unnamedplus"
 vim.wo.number = true
 vim.opt.swapfile = false
 vim.opt.termguicolors = true
+vim.cmd.colorscheme('tokyonight')

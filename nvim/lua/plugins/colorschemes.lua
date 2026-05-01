@@ -9,9 +9,10 @@ return {
 			require("tokyonight").setup({
 				style = "night",
 				on_colors = function(colors)
-					colors.green = "#6cebbc"
+					--[[colors.green = "#6ccdfc"
 					colors.orange = colors.magenta
 					colors.yellow = "#f9e2af"
+          ]]
 				end,
 			})
 		end,
@@ -80,11 +81,5 @@ return {
 		opts = {
 			transparent = false,
 		},
-	},
-	{
-		"andrew-george/telescope-themes",
-		config = function()
-			require("telescope").load_extension("themes")
-		end,
 	},
 }
