@@ -12,6 +12,10 @@ cmp.setup({
         ['<Tab>'] = { 'select_next' },
         -- Chained commands
         ['<S-Tab>'] = { 'select_prev', 'fallback' },
+        ['<C-x><C-o>'] = { 'show', 'fallback' },
+        ['jk'] = { 'hide' },
+        -- Key equivalences (for terminals that support them)
+        ['<CR>'] = { 'accept', 'snippet_forward', 'fallback' },
 
     }, -- Vim-style keymaps
 })

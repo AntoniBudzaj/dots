@@ -49,7 +49,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
 })
 
 vim.opt.completeopt = { 'menuone', 'noselect' }
-vim.o.pumborder = 'rounded'
 
 local ts_server = vim.g.lsp_typescript_server or "vtsls"
 

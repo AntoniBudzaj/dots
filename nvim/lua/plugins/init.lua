@@ -1,3 +1,4 @@
+require('plugins.tokyonight')
 require('plugins.mason')
 require('plugins.neo-tree')
 require('plugins.blink')
