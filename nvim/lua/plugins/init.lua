@@ -1,0 +1,6 @@
+require('plugins.mason')
+require('plugins.neo-tree')
+require('plugins.blink')
+require('plugins.telescope')
+require('plugins.bufferline')
+require('plugins.treesitter')

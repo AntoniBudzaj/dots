@@ -1,69 +1,101 @@
-local cmp = require("cmp")
+local opts = { noremap = true, silent = true }
+local builtin = require('telescope.builtin')
 
-cmp.setup({
-	mapping = {
-		["<Tab>"] = cmp.mapping.select_next_item(),
-		["<S-Tab>"] = cmp.mapping.select_prev_item(),
-		["<CR>"] = cmp.mapping.confirm({ select = true }),
-		["<C-Space>"] = cmp.mapping.complete(),
-	},
-})
 
--- Navigate vim panes better
-vim.keymap.set("n", "<c-k>", ":wincmd k<CR>")
-vim.keymap.set("n", "<c-j>", ":wincmd j<CR>")
-vim.keymap.set("n", "<c-h>", ":wincmd h<CR>")
-vim.keymap.set("n", "<c-l>", ":wincmd l<CR>")
-vim.api.nvim_set_keymap("n", "<Leader>sv", ":vsplit<CR>", { noremap = true, silent = true })
---bufferline keymaps
-vim.keymap.set("n", "<Tab>", "<Cmd>BufferLineCycleNext<CR>", { desc = "Next buffer" })
-vim.keymap.set("n", "<S-Tab>", "<Cmd>BufferLineCyclePrev<CR>", { desc = "Previous buffer" })
-vim.keymap.set("n", "<C-w>", "<Cmd>lua Snacks.bufdelete()<CR>", { desc = "Delete buffer" })
+-- ============================================================
+--                      TELESCOPE
+-- ============================================================
+vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })
+vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
+vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
+vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
+-- ============================================================
+--                         PANES
+-- ============================================================
+vim.keymap.set('n', '<C-S-l>', '<cmd>vsplit<CR>', { desc = 'split buffer rigth' })
+vim.keymap.set('n', '<C-S-j>', '<cmd>split<CR>', { desc = 'split buffer down' })
+-- navigation
+ vim.keymap.set('n', '<C-l>', '<cmd>wincmd l<CR>', { desc = 'move to rigth pane' })
+ vim.keymap.set('n', '<C-k>', '<cmd>wincmd k<CR>', { desc = 'move to upper pane' })
+ vim.keymap.set('n', '<C-j>', '<cmd>wincmd j<CR>', { desc = 'move to down pane' })
+ vim.keymap.set('n', '<C-h>', '<cmd>wincmd h<CR>', { desc = 'move to left pane' })
+ vim.keymap.set('n', '<M-Tab>', '<C-w>p', { desc = 'Go to previous window' })
+-- pane position
+vim.keymap.set('n', '<C-w>l', '<C-w>L', { desc = 'move pane to right' })
+vim.keymap.set('n', '<C-w>k', '<C-w>K', { desc = 'move pane to top' })
+vim.keymap.set('n', '<C-w>j', '<C-w>J', { desc = 'move pane to bottom' })
+vim.keymap.set('n', '<C-w>h', '<C-w>H', { desc = 'move pane to left' })
+-- pane resize
+vim.keymap.set('n', '<C-Up>', '<cmd>resize -2<CR>', { desc = 'increase height' })
+vim.keymap.set('n', '<c-down>', '<cmd>resize +2<cr>', { desc = 'decrease height' })
+vim.keymap.set('n', '<C-Left>', '<cmd>vertical resize +2<CR>', { desc = 'decrease width' })
+vim.keymap.set('n', '<C-Right>', '<cmd>vertical resize -2<CR>', { desc = 'increase width' })
 
--- oil keymaps
-vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
---dashboard
-vim.keymap.set("n", "<C-d>", "<CMD>lua Snacks.dashboard.open()<CR>", { desc = "Open dashoard" })
+-- ============================================================
+--                         LSP
+-- ============================================================
 
---lsp
-vim.keymap.set("n", "K", vim.lsp.buf.hover, {}) -- inspect
-vim.keymap.set("n", "<F12>", vim.lsp.buf.definition, {}) -- go to definition
-vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, {}) -- go to references
-vim.keymap.set("n", "<M-CR>", vim.lsp.buf.code_action, {}) -- code action
-vim.keymap.set("n", "<C-M-CR>", vim.lsp.buf.format, {})
---diagnostics
-vim.keymap.set(
-	"n",
-	"<leader>di",
-	"<CMD>lua vim.diagnostic.open_float(nil, { focus = false })<CR>",
-	{ desc = "Open diagnostics floating inspection" }
-)
-vim.keymap.set("n", "<Space>pd", "<CMD>lua Snacks.picker.diagnostics()<CR>", { desc = "Picker diagnostics" })
+vim.keymap.set('n', '<leader>di', vim.diagnostic.open_float, { desc = 'opens floatind diagnostics' })
+vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code Actions" })
+vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename, { desc = "Code Rename" })
+vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Hover (alt)" })
+vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Goto Definition" })
+vim.keymap.set('n', '<C-A-Enter>', function()
+    vim.lsp.buf.format({ async = true })
+end, { desc = 'Format buffer with LSP' })
+vim.keymap.set('i', '<CR>', function()
+    if vim.fn.pumvisible() == 1 then
+        return '<C-y>'
+    else
+        return '<CR>'
+    end
+end, { expr = true })
 
---picker
-vim.keymap.set("n", "<M-1>", "<CMD>lua Snacks.picker.explorer()<CR>", { desc = "Open file picker" })
-vim.keymap.set("n", "<leader>p", "<CMD>lua Snacks.picker()<CR>", { desc = "Open picker" })
-vim.keymap.set("n", "<leader>pg", "<CMD>lua Snacks.picker.grep()<CR>", { desc = "Open grep picker" })
-vim.keymap.set(
-	"n",
-	"<leader>pf",
-	"<CMD>lua Snacks.picker.files()<CR>",
-	{ desc = "search through files in current dir" }
-)
--- git keymaps
-vim.keymap.set("n", "<leader>gs", "<CMD>lua Snacks.picker.git_status<CR>", { desc = "open git status" })
-vim.keymap.set("n", "<leader>gd", "<CMD>lua Snacks.picker.git_diff()<CR>", { desc = "open git commits" })
-vim.keymap.set("n", "<leader>gl", "<CMD>lua Snacks.picker.git_log()<CR>", { desc = "open git log" })
-vim.keymap.set(
-	"n",
-	"<leader>gL",
-	"<CMD>lua Snacks.picker.git_log_file()<CR>",
-	{ desc = "open git logs on current file" }
-)
-vim.keymap.set("n", "<leader>gb", "<CMD>lua Snacks.picker.git_branches()<CR>", { desc = "open git branches" })
 
-vim.keymap.set("n", "<leader>pn", "<CMD>lua Snacks.picker.notifications()<CR>", { desc = "open notification history" })
 
---lazygit
-vim.keymap.set("n", "<leader>lg", "<CMD>lua Snacks.lazygit()<CR>", { desc = "Open lazygit" })
+-- ============================================================
+--                         TERMINAL
+-- ============================================================
+
+-- navigate terminal
+vim.keymap.set("t", "<esc><esc>", "<c-\\><c-n>", { desc = "Enter Normal Mode" })
+vim.keymap.set('t', '<C-q>', '<C-\\><C-n><cmd>bd!<CR>', { desc = 'Close terminal pane' })
+-- Navigate between splits from terminal mode
+vim.keymap.set('t', '<C-h>', '<C-\\><C-n><C-w>h', { desc = 'Move to left pane' })
+vim.keymap.set('t', '<C-j>', '<C-\\><C-n><C-w>j', { desc = 'Move to down pane' })
+vim.keymap.set('t', '<C-k>', '<C-\\><C-n><C-w>k', { desc = 'Move to up pane' })
+vim.keymap.set('t', '<C-l>', '<C-\\><C-n><C-w>l', { desc = 'Move to right pane' })
+
+
+-- ============================================================
+--                         NVIM-TREE
+-- ============================================================
+vim.keymap.set('n', '<A-1>', '<cmd>Neotree toggle<CR>', { desc = 'toggle nvim tree' })
+
+
+
+-- ============================================================
+--                    SMART TEXT EDITING
+-- ============================================================
+
+-- smart paste dosent copy the deleted text
+vim.keymap.set("v", "p", '"_dP', opts)
+
+-- autoclose without plugin
+vim.keymap.set("i", "`", "``<left>")
+vim.keymap.set("i", '"', '""<left>')
+vim.keymap.set("i", "(", "()<left>")
+vim.keymap.set("i", "[", "[]<left>")
+vim.keymap.set("i", "{", "{}<left>")
+vim.keymap.set("i", "<", "<><left>")
+
+
+
+-- ============================================================
+--                         BUFFER
+-- ============================================================
+
+vim.keymap.set("n", "<Tab>", ":bnext<CR>", { desc = "Next buffer" })
+vim.keymap.set("n", "<S-Tab>", ":bprevious<CR>", { desc = "Previous buffer" })
+vim.keymap.set("n", "<leader>bb", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })

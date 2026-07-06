@@ -1,11 +1,10 @@
-return {
-	"akinsho/bufferline.nvim",
-	version = "*",
-	dependencies = "nvim-tree/nvim-web-devicons",
-	config = function()
-		local bufferline = require("bufferline")
+vim.pack.add({
+    { src = 'https://github.com/akinsho/bufferline.nvim' },
 
-    	bufferline.setup()
+    "https://github.com/nvim-tree/nvim-web-devicons",
+})
 
-  end,
-}
+require("bufferline").setup{}
+
+
+

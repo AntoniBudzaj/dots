@@ -1,7 +1,3 @@
-require("config.lazy")
-
-require("config.options")
-
-require("config.keymaps")
-
-
+require("vim._core.ui2").enable({})
+require("plugins.init")
+require("config.init")
