@@ -1,7 +1,7 @@
 if status is-interactive
   set -g fish_greeting
 zoxide init fish | source
-oh-my-posh init fish --config ~/.config/fish/tokyonight.omp.json | source
+starship init fish | source
 
 end
 
