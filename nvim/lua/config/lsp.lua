@@ -1,5 +1,6 @@
-require("lsp.lua_ls")
-require("lsp.ts_ls")
+require('lsp.lua_ls')
+require('lsp.vtsls')
+require('lsp.vue')
 
 vim.pack.add {
     { src = 'https://github.com/neovim/nvim-lspconfig' },
@@ -11,9 +12,6 @@ local function augroup(name)
 end
 
 
--- ============================================================
---                         TYPESCRIPT
--- ============================================================
 
 local completion = "blink" -- or 'native' for built-in completion
 vim.api.nvim_create_autocmd("LspAttach", {
@@ -48,12 +46,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
     end,
 })
 
+
 vim.opt.completeopt = { 'menuone', 'noselect' }
+vim.lsp.enable({'lua_ls','vtsls', 'vue_ls'}) 
 
-local ts_server = vim.g.lsp_typescript_server or "vtsls"
 
-vim.lsp.enable({
-    ts_server,
-    'lua_ls',
-    'vtsls'
-})

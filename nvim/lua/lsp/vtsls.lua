@@ -1,4 +1,4 @@
-return {
+vim.lsp.config('vtsls',{
   cmd = { 'vtsls', '--stdio' },
   init_options = {
     hostInfo = 'neovim',
@@ -8,6 +8,7 @@ return {
     'javascriptreact',
     'typescript',
     'typescriptreact',
+    'vue'
   },
   root_dir = function(bufnr, on_dir)
     -- The project root is where the LSP can be started from
@@ -34,4 +35,4 @@ return {
     -- We fallback to the current working directory if no project root is found
     on_dir(project_root or vim.fn.getcwd())
   end,
-}
+})
