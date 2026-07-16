@@ -6,6 +6,8 @@ local function reload_config()
     vim.cmd('qa!')
 end
 
+
+
 -- Create command
 
 -- Commands for quick terminals
@@ -13,7 +15,10 @@ vim.api.nvim_create_user_command('HTerm', 'split | terminal', {})
 vim.api.nvim_create_user_command('VTerm', 'vsplit | terminal', {})
 vim.api.nvim_create_user_command('Term', 'terminal', {})
 -- Reload config
---
 vim.api.nvim_create_user_command('ReloadNvim', reload_config, {})
+-- git commands
+vim.api.nvim_create_user_command('gitb', 'Telescope git_branches', {})
+vim.api.nvim_create_user_command('gitc', 'Telescope git_commits', {})
+vim.api.nvim_create_user_command('gitcb', 'Telescope git_bcommits', {})
 
 

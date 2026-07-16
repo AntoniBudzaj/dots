@@ -1,14 +1,15 @@
 local opts = { noremap = true, silent = true }
 local builtin = require('telescope.builtin')
-
-
 -- ============================================================
 --                      TELESCOPE
 -- ============================================================
 vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })
+vim.keymap.set('n','<leader>t','<cmd>Telescope<cr>')
+vim.keymap.set('n','<leader>tb','<cmd>Telescope<cr>')
 vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
 vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
+vim.keymap.set('n','<leader>fo',builtin.oldfiles,{desc='List old files'})
 -- ============================================================
 --                         PANES
 -- ============================================================
@@ -19,7 +20,7 @@ vim.keymap.set('n', '<C-S-j>', '<cmd>split<CR>', { desc = 'split buffer down' })
  vim.keymap.set('n', '<C-k>', '<cmd>wincmd k<CR>', { desc = 'move to upper pane' })
  vim.keymap.set('n', '<C-j>', '<cmd>wincmd j<CR>', { desc = 'move to down pane' })
  vim.keymap.set('n', '<C-h>', '<cmd>wincmd h<CR>', { desc = 'move to left pane' })
- vim.keymap.set('n', '<M-Tab>', '<C-w>p', { desc = 'Go to previous window' })
+ vim.keymap.set('n', '<leader>pw', '<C-w>p', { desc = 'Go to previous window' })
 -- pane position
 vim.keymap.set('n', '<C-w>l', '<C-w>L', { desc = 'move pane to right' })
 vim.keymap.set('n', '<C-w>k', '<C-w>K', { desc = 'move pane to top' })
@@ -90,8 +91,6 @@ vim.keymap.set("i", "[", "[]<left>")
 vim.keymap.set("i", "{", "{}<left>")
 vim.keymap.set("i", "<", "<><left>")
 
-
-
 -- ============================================================
 --                         BUFFER
 -- ============================================================
@@ -99,3 +98,11 @@ vim.keymap.set("i", "<", "<><left>")
 vim.keymap.set("n", "<Tab>", ":bnext<CR>", { desc = "Next buffer" })
 vim.keymap.set("n", "<S-Tab>", ":bprevious<CR>", { desc = "Previous buffer" })
 vim.keymap.set("n", "<leader>bb", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
+vim.keymap.set("n","<leader>bd","<cmd>bd<CR>",{desc="close buffer"})
+
+-- ============================================================
+--                         GIT
+-- ============================================================
+vim.keymap.set('n','<leader>gc',builtin.git_commits,{desc='list previous commits in project'})
+vim.keymap.set('n','<leader>gb',builtin.git_bcommits,{desc='list previous commits in project'})
+

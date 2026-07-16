@@ -2,21 +2,21 @@ vim.pack.add({
     { src = 'https://github.com/nvim-treesitter/nvim-treesitter' }
 })
 
+local langs = {'javascript','html','typescript','vue','svelte'}
+
 require('nvim-treesitter').setup {
-    -- Use system-installed parsers if available
-    ensure_installed = {
-        "vue",
-        "typescript",
-        "tsx",
-        "javascript",
-        "html",
-        "css",
-    },
-    auto_install = true, -- Automatically install missing parsers
-    highlight = {
-        enable = true,
-    },
-    indent={
-      enable = true
-    },
+    -- Directory to install parsers and queries to (prepended to `runtimepath` to have priority)
+    install_dir = vim.fn.stdpath('data') .. '/site'
 }
+
+require('nvim-treesitter').install(langs)
+
+vim.api.nvim_create_autocmd('FileType', {
+    pattern = langs,
+    callback = function()
+        -- syntax highlighting, provided by Neovim
+        vim.treesitter.start()
+        -- indentation, provided by nvim-treesitter
+        vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+    end,
+})
