@@ -43,7 +43,7 @@ opt.undofile = true
 
 opt.clipboard = vim.env.SSH_TTY and "" or "unnamedplus" -- Sync with system clipboard
 opt.isfname:append('@-@')
-opt.scrolloff = 8
+opt.scrolloff = 16
 opt.signcolumn = 'yes'
 
 vim.o.cmdheight = 1
