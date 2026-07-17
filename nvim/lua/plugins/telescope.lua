@@ -5,4 +5,11 @@ vim.pack.add({
     'https://github.com/nvim-tree/nvim-web-devicons'
 })
 
-require('telescope').setup({})
+require('telescope').setup({
+defaults = {
+   file_ignore_patterns = {
+     "node_modules", "build", "dist", "yarn.lock"
+   },
+   initial_mode = "normal"
+  }
+})

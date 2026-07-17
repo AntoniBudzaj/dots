@@ -17,8 +17,8 @@ vim.api.nvim_create_user_command('Term', 'terminal', {})
 -- Reload config
 vim.api.nvim_create_user_command('ReloadNvim', reload_config, {})
 -- git commands
-vim.api.nvim_create_user_command('gitb', 'Telescope git_branches', {})
-vim.api.nvim_create_user_command('gitc', 'Telescope git_commits', {})
-vim.api.nvim_create_user_command('gitcb', 'Telescope git_bcommits', {})
+vim.api.nvim_create_user_command('Gitb', 'Telescope git_branches', {})
+vim.api.nvim_create_user_command('Gitc', 'Telescope git_commits', {})
+vim.api.nvim_create_user_command('Gitcb', 'Telescope git_bcommits', {})
 
 

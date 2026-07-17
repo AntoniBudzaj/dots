@@ -1,26 +1,27 @@
 local opts = { noremap = true, silent = true }
 local builtin = require('telescope.builtin')
+local snacks = require('snacks')
+
 -- ============================================================
---                      TELESCOPE
+--                       PICKER
 -- ============================================================
-vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })
-vim.keymap.set('n','<leader>t','<cmd>Telescope<cr>')
-vim.keymap.set('n','<leader>tb','<cmd>Telescope<cr>')
-vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
-vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
-vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
-vim.keymap.set('n','<leader>fo',builtin.oldfiles,{desc='List old files'})
+vim.keymap.set('n', '<leader><leader>', snacks.picker.files, { desc = 'picker find files' })
+vim.keymap.set('n', '<leader>p', function() snacks.picker() end, { desc = 'open picker' })
+vim.keymap.set('n', '<leader>pg', snacks.picker.grep, { desc = 'picker live grep' })
+vim.keymap.set('n', '<leader>pb', snacks.picker.grep_buffers, { desc = 'picker grep buffers' })
+vim.keymap.set('n', '<leader>pp', snacks.picker.projects, { desc = 'picker projects' })
+
 -- ============================================================
 --                         PANES
 -- ============================================================
 vim.keymap.set('n', '<C-S-l>', '<cmd>vsplit<CR>', { desc = 'split buffer rigth' })
 vim.keymap.set('n', '<C-S-j>', '<cmd>split<CR>', { desc = 'split buffer down' })
 -- navigation
- vim.keymap.set('n', '<C-l>', '<cmd>wincmd l<CR>', { desc = 'move to rigth pane' })
- vim.keymap.set('n', '<C-k>', '<cmd>wincmd k<CR>', { desc = 'move to upper pane' })
- vim.keymap.set('n', '<C-j>', '<cmd>wincmd j<CR>', { desc = 'move to down pane' })
- vim.keymap.set('n', '<C-h>', '<cmd>wincmd h<CR>', { desc = 'move to left pane' })
- vim.keymap.set('n', '<leader>pw', '<C-w>p', { desc = 'Go to previous window' })
+vim.keymap.set('n', '<C-l>', '<cmd>wincmd l<CR>', { desc = 'move to rigth pane' })
+vim.keymap.set('n', '<C-k>', '<cmd>wincmd k<CR>', { desc = 'move to upper pane' })
+vim.keymap.set('n', '<C-j>', '<cmd>wincmd j<CR>', { desc = 'move to down pane' })
+vim.keymap.set('n', '<C-h>', '<cmd>wincmd h<CR>', { desc = 'move to left pane' })
+vim.keymap.set('n', '<leader>pw', '<C-w>p', { desc = 'Go to previous window' })
 -- pane position
 vim.keymap.set('n', '<C-w>l', '<C-w>L', { desc = 'move pane to right' })
 vim.keymap.set('n', '<C-w>k', '<C-w>K', { desc = 'move pane to top' })
@@ -43,14 +44,14 @@ vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename, { desc = "Code Rename" })
 vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Hover (alt)" })
 vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Goto Definition" })
 vim.keymap.set('n', '<C-A-Enter>', function()
-    vim.lsp.buf.format({ async = true })
+  vim.lsp.buf.format({ async = true })
 end, { desc = 'Format buffer with LSP' })
 vim.keymap.set('i', '<CR>', function()
-    if vim.fn.pumvisible() == 1 then
-        return '<C-y>'
-    else
-        return '<CR>'
-    end
+  if vim.fn.pumvisible() == 1 then
+    return '<C-y>'
+  else
+    return '<CR>'
+  end
 end, { expr = true })
 
 
@@ -70,9 +71,9 @@ vim.keymap.set('t', '<C-l>', '<C-\\><C-n><C-w>l', { desc = 'Move to right pane' 
 
 
 -- ============================================================
---                         NVIM-TREE
+--                    SNACKS-EXPLORER
 -- ============================================================
-vim.keymap.set('n', '<A-1>', '<cmd>Neotree toggle<CR>', { desc = 'toggle nvim tree' })
+vim.keymap.set('n', '<A-1>', snacks.picker.explorer, { desc = 'toggle nvim tree' })
 
 
 
@@ -80,16 +81,11 @@ vim.keymap.set('n', '<A-1>', '<cmd>Neotree toggle<CR>', { desc = 'toggle nvim tr
 --                    SMART TEXT EDITING
 -- ============================================================
 
--- smart paste dosent copy the deleted text
+-- Better indenting (stay in visual mode)
+vim.keymap.set("v", "<", "<gv")
+vim.keymap.set("v", ">", ">gv")
+-- Better paste (doesn't replace clipboard with deleted text)
 vim.keymap.set("v", "p", '"_dP', opts)
-
--- autoclose without plugin
-vim.keymap.set("i", "`", "``<left>")
-vim.keymap.set("i", '"', '""<left>')
-vim.keymap.set("i", "(", "()<left>")
-vim.keymap.set("i", "[", "[]<left>")
-vim.keymap.set("i", "{", "{}<left>")
-vim.keymap.set("i", "<", "<><left>")
 
 -- ============================================================
 --                         BUFFER
@@ -98,11 +94,12 @@ vim.keymap.set("i", "<", "<><left>")
 vim.keymap.set("n", "<Tab>", ":bnext<CR>", { desc = "Next buffer" })
 vim.keymap.set("n", "<S-Tab>", ":bprevious<CR>", { desc = "Previous buffer" })
 vim.keymap.set("n", "<leader>bb", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
-vim.keymap.set("n","<leader>bd","<cmd>bd<CR>",{desc="close buffer"})
+vim.keymap.set("n", "<leader>bd", "<cmd>bd<CR>", { desc = "close buffer" })
+vim.keymap.set('n', '<leader>nh', '<cmd>noh<CR>', { desc = 'clear search highlight' })
 
 -- ============================================================
 --                         GIT
 -- ============================================================
-vim.keymap.set('n','<leader>gc',builtin.git_commits,{desc='list previous commits in project'})
-vim.keymap.set('n','<leader>gb',builtin.git_bcommits,{desc='list previous commits in project'})
-
+vim.keymap.set('n', '<leader>lg', function() snacks.lazygit() end, { desc = 'open lazygit' })
+vim.keymap.set('n', '<leader>gc', builtin.git_commits, { desc = 'list previous commits in project' })
+vim.keymap.set('n', '<leader>gb', builtin.git_bcommits, { desc = 'list previous commits in project' })

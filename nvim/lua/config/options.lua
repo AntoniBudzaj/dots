@@ -1,44 +1,51 @@
+local opt = vim.opt
+
 vim.g.mapleader = " "
 
-vim.opt.number = true
-vim.opt.termguicolors = true
-vim.opt.relativenumber = true
-vim.opt.ignorecase = true
-vim.opt.smartcase = true
-vim.opt.hlsearch = false
+opt.number = true
+opt.termguicolors = true
+opt.relativenumber = true
+opt.ignorecase = true
+opt.smartcase = true
+opt.hlsearch = true
+opt.laststatus = 3
+opt.cursorline = true -- Highlight current line
 
-vim.opt.tabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.softtabstop = 4
-vim.opt.expandtab = true
-
-vim.opt.wrap = false
-vim.opt.smartindent = true
-vim.opt.inccommand = 'split'
-vim.opt.encoding = 'utf-8'
+opt.tabstop = 2
+opt.shiftwidth = 2
+opt.softtabstop = 2
+opt.expandtab = true
 
 
-vim.opt.shell = 'zsh' -- or bash, fish, etc.
-vim.opt.shellcmdflag = '-c'
-vim.opt.shellredir = '2>&1 | tee'
+opt.pumheight = 10 -- Popup menu height
+opt.pumblend = 10 -- Popup menu transparency
 
-vim.opt.splitbelow = true
-vim.opt.splitright= true
+opt.wrap = false
+opt.smartindent = true
+opt.inccommand = 'split'
+opt.encoding = 'utf-8'
 
-vim.opt.ignorecase = true
-vim.opt.smartcase = true
-vim.opt.laststatus = 3
 
-vim.opt.swapfile = false
-vim.opt.backup = flase
-vim.opt.undodir = vim.fn.stdpath('data') .. '/undodir'
-vim.opt.undofile = true
+opt.shell = 'zsh' -- or bash, fish, etc.
+opt.shellcmdflag = '-c'
+opt.shellredir = '2>&1 | tee'
 
-vim.opt.clipboard:append('unnamedplus')
-vim.opt.isfname:append('@-@')
-vim.opt.scrolloff = 8
-vim.opt.signcolumn = 'yes'
+opt.splitbelow = true
+opt.splitright= true
 
-vim.o.cmdheight = 0
+opt.backup = false -- Don't create backup files
+opt.writebackup = false -- Don't create backup before writing
+opt.swapfile = false -- Don't create swap files
+opt.undofile = true -- Persistent undo
+opt.undolevels = 10000
+opt.undodir = vim.fn.stdpath('data') .. '/undodir'
+opt.undofile = true
+
+opt.clipboard = vim.env.SSH_TTY and "" or "unnamedplus" -- Sync with system clipboard
+opt.isfname:append('@-@')
+opt.scrolloff = 8
+opt.signcolumn = 'yes'
+
+vim.o.cmdheight = 1
 
 
