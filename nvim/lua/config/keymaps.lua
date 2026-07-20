@@ -95,8 +95,9 @@ vim.keymap.set("n", "<Tab>", ":bnext<CR>", { desc = "Next buffer" })
 vim.keymap.set("n", "<S-Tab>", ":bprevious<CR>", { desc = "Previous buffer" })
 vim.keymap.set("n", "<leader>bb", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
 vim.keymap.set("n", "<C-w>", "<cmd>bd<CR>", { desc = "close buffer" })
-vim.keymap.set("n",'<leader>bl','<cmd>BufferLineCloseLeft<Cr>',{desc= 'cloese buffers to the left'})
-vim.keymap.set("n",'<leader>br','<cmd>BufferLineCloseRigth<Cr>',{desc= 'cloese buffers to the rigth'})
+vim.keymap.set("n",'<leader>bl','<cmd>BufferLineCloseLeft<Cr>',{desc= 'close buffers to the left'})
+vim.keymap.set("n",'<leader>br','<cmd>BufferLineCloseRigth<Cr>',{desc= 'close buffers to the rigth'})
+vim.keymap.set("n",'<leader>bo','<cmd>BufferLineCloseOther<Cr>',{desc= 'close other buffers then current'})
 vim.keymap.set('n', '<leader>nh', '<cmd>noh<CR>', { desc = 'clear search highlight' })
 
 
