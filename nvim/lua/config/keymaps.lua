@@ -59,7 +59,9 @@ end, { expr = true })
 -- ============================================================
 --                         TERMINAL
 -- ============================================================
-
+-- open terminal
+vim.keymap.set("n",'<leader>tt','<cmd>Term<CR>')
+vim.keymap.set("n",'<leader>tf','<cmd>FloatermToggle<CR>')
 -- navigate terminal
 vim.keymap.set("t", "<esc><esc>", "<c-\\><c-n>", { desc = "Enter Normal Mode" })
 vim.keymap.set('t', '<C-q>', '<C-\\><C-n><cmd>bd!<CR>', { desc = 'Close terminal pane' })

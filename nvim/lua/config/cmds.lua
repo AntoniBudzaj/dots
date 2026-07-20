@@ -22,3 +22,4 @@ vim.api.nvim_create_user_command('Gitc', 'Telescope git_commits', {})
 vim.api.nvim_create_user_command('Gitcb', 'Telescope git_bcommits', {})
 
 
+
