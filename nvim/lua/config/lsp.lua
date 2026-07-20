@@ -48,6 +48,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
 
 vim.opt.completeopt = { 'menuone', 'noselect' }
-vim.lsp.enable({'lua_ls','vtsls', 'vue_ls','html','cssls','svelte'})
+vim.lsp.enable({'lua_ls','vtsls', 'vue_ls','html','cssls','svelte','rosalyn_ls'})
 
 

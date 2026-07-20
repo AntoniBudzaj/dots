@@ -1,21 +1,37 @@
 vim.pack.add({
   { src = 'https://github.com/nvzone/floaterm' },
-'https://github.com/nvzone/volt'
+  'https://github.com/nvzone/volt'
 })
 
+local function disable_esc(buf)
+  pcall(vim.keymap.del, 'n', '<Esc>', {
+    buffer = buf,
+  })
+end
 
 require('floaterm').setup({
   border = false,
-  size = { h = 60, w = 70 },
 
-  -- to use, make this func(buf)
-  mappings = { sidebar = nil, term = nil },
+  size = {
+    h = 60,
+    w = 70,
+  },
 
-  -- Default sets of terminals you'd like to open
+  mappings = {
+    -- Terminal window
+    term = function(buf)
+      disable_esc(buf)
+    end,
+
+    -- Floaterm sidebar
+    sidebar = function(buf)
+      disable_esc(buf)
+    end,
+  },
+
   terminals = {
-    { name = "Terminal" },
-    -- cmd can be function too
-    { name = "Terminal", cmd = "neofetch" },
-    -- More terminals
+    {
+      name = 'Terminal',
+    },
   },
 })

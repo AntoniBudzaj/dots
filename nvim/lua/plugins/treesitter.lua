@@ -2,7 +2,7 @@ vim.pack.add({
     { src = 'https://github.com/nvim-treesitter/nvim-treesitter' }
 })
 
-local langs = {'javascript','html','typescript','vue','svelte','scss'}
+local langs = {'javascript','html','typescript','vue','svelte','scss','c_sharp'}
 
 require('nvim-treesitter').setup {
     -- Directory to install parsers and queries to (prepended to `runtimepath` to have priority)
