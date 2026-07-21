@@ -2,15 +2,21 @@ local opts = { noremap = true, silent = true }
 local builtin = require('telescope.builtin')
 local snacks = require('snacks')
 
+
 -- ============================================================
---                       PICKER
+--                         GENERAL
+-- ============================================================
+vim.keymap.set("n", '<Esc>', '<cmd>nohlsearch<cr>', { desc = 'turn off search highlight' })
+
+-- ============================================================
+--                         PICKER
 -- ============================================================
 vim.keymap.set('n', '<leader><leader>', snacks.picker.files, { desc = 'picker find files' })
 vim.keymap.set('n', '<leader>p', function() snacks.picker() end, { desc = 'open picker' })
 vim.keymap.set('n', '<leader>pg', snacks.picker.grep, { desc = 'picker live grep' })
 vim.keymap.set('n', '<leader>pb', snacks.picker.grep_buffers, { desc = 'picker grep buffers' })
 vim.keymap.set('n', '<leader>pp', snacks.picker.projects, { desc = 'picker projects' })
-vim.keymap.set('n', '<leader>pr', snacks.picker.recent, {desc='picker open recent files'})
+vim.keymap.set('n', '<leader>pr', snacks.picker.recent, { desc = 'picker open recent files' })
 
 -- ============================================================
 --                         PANES
@@ -61,8 +67,8 @@ end, { expr = true })
 --                         TERMINAL
 -- ============================================================
 -- open terminal
-vim.keymap.set("n",'<leader>tt','<cmd>Term<CR>')
-vim.keymap.set("n",'<leader>tf','<cmd>FloatermToggle<CR>')
+vim.keymap.set("n", '<leader>tt', '<cmd>Term<CR>')
+vim.keymap.set("n", '<leader>tf', '<cmd>FloatermToggle<CR>')
 -- navigate terminal
 vim.keymap.set("t", "<esc><esc>", "<c-\\><c-n>", { desc = "Enter Normal Mode" })
 vim.keymap.set('t', '<C-q>', '<C-\\><C-n><cmd>bd!<CR>', { desc = 'Close terminal pane' })
@@ -98,15 +104,14 @@ vim.keymap.set("n", "<Tab>", ":bnext<CR>", { desc = "Next buffer" })
 vim.keymap.set("n", "<S-Tab>", ":bprevious<CR>", { desc = "Previous buffer" })
 vim.keymap.set("n", "<leader>bb", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
 vim.keymap.set("n", "<C-w>", "<cmd>bd<CR>", { desc = "close buffer" })
-vim.keymap.set("n",'<leader>bl','<cmd>BufferLineCloseLeft<Cr>',{desc= 'close buffers to the left'})
-vim.keymap.set("n",'<leader>br','<cmd>BufferLineCloseRigth<Cr>',{desc= 'close buffers to the rigth'})
-vim.keymap.set("n",'<leader>bo','<cmd>BufferLineCloseOther<Cr>',{desc= 'close other buffers then current'})
-vim.keymap.set('n', '<leader>nh', '<cmd>noh<CR>', { desc = 'clear search highlight' })
+vim.keymap.set("n", '<leader>bl', '<cmd>BufferLineCloseLeft<Cr>', { desc = 'close buffers to the left' })
+vim.keymap.set("n", '<leader>br', '<cmd>BufferLineCloseRigth<Cr>', { desc = 'close buffers to the rigth' })
+vim.keymap.set("n", '<leader>bo', '<cmd>BufferLineCloseOther<Cr>', { desc = 'close other buffers then current' })
+vim.keymap.set('n', '>', '<cmd>BufferLineMoveNext<CR>', { desc = 'Move tab to the right' })
+vim.keymap.set('n', '<', '<cmd>BufferLineMovePrev<CR>', { desc = 'Move tab to the left' })
 
 
 -- ============================================================
 --                         GIT
 -- ============================================================
 vim.keymap.set('n', '<leader>lg', function() snacks.lazygit() end, { desc = 'open lazygit' })
-vim.keymap.set('n', '<leader>gc', builtin.git_commits, { desc = 'list previous commits in project' })
-vim.keymap.set('n', '<leader>gb', builtin.git_bcommits, { desc = 'list previous commits in project' })
