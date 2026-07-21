@@ -7,5 +7,5 @@ require("mason").setup()
 
 
 require('mason-lspconfig').setup({
-	ensure_installed = { 'lua_ls', 'vtsls','vue_ls','html','cssls', 'svelte','roslyn_ls'},
+	ensure_installed = { 'lua_ls', 'vtsls','vue_ls','html','cssls', 'svelte'},
 })

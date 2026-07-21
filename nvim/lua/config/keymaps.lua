@@ -10,6 +10,7 @@ vim.keymap.set('n', '<leader>p', function() snacks.picker() end, { desc = 'open 
 vim.keymap.set('n', '<leader>pg', snacks.picker.grep, { desc = 'picker live grep' })
 vim.keymap.set('n', '<leader>pb', snacks.picker.grep_buffers, { desc = 'picker grep buffers' })
 vim.keymap.set('n', '<leader>pp', snacks.picker.projects, { desc = 'picker projects' })
+vim.keymap.set('n', '<leader>pr', snacks.picker.recent, {desc='picker open recent files'})
 
 -- ============================================================
 --                         PANES
