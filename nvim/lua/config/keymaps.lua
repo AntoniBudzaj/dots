@@ -101,8 +101,8 @@ vim.keymap.set("v", "p", '"_dP', opts)
 --                         BUFFER
 -- ============================================================
 
-vim.keymap.set("n", "<Tab>", "<cmd>BufferLineCyclePrev<CR>", { desc = "Next buffer" })
-vim.keymap.set("n", "<S-Tab>", "<cmd>BufferLineCycleNext<CR>", { desc = "Previous buffer" })
+vim.keymap.set("n", "<Tab>", "<cmd>BufferLineCycleNext<CR>", { desc = "Next buffer" })
+vim.keymap.set("n", "<S-Tab>", "<cmd>BufferLineCyclePrev<CR>", { desc = "Previous buffer" })
 vim.keymap.set("n", "<leader>bb", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
 vim.keymap.set("n", "<C-w>", "<cmd>bd<CR>", { desc = "close buffer" })
 vim.keymap.set("n", '<leader>bl', '<cmd>BufferLineCloseLeft<Cr>', { desc = 'close buffers to the left' })
