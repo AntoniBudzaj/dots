@@ -11,9 +11,9 @@ opt.hlsearch = true
 opt.laststatus = 3
 opt.cursorline = true -- Highlight current line
 
-opt.tabstop = 2
-opt.shiftwidth = 2
-opt.softtabstop = 2
+opt.tabstop = 3
+opt.shiftwidth = 3
+opt.softtabstop = 3
 opt.expandtab = true
 
 

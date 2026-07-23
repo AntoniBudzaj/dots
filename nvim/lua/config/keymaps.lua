@@ -13,7 +13,7 @@ vim.keymap.set("n", '<Esc>', '<cmd>nohlsearch<cr>', { desc = 'turn off search hi
 -- ============================================================
 vim.keymap.set('n', '<leader><leader>', snacks.picker.files, { desc = 'picker find files' })
 vim.keymap.set('n', '<leader>p', function() snacks.picker() end, { desc = 'open picker' })
-vim.keymap.set('n', '<leader>g', snacks.picker.grep, { desc = 'picker live grep' })
+vim.keymap.set('n', '<leader>pg', snacks.picker.grep, { desc = 'picker live grep' })
 vim.keymap.set('n', '<leader>gb', snacks.picker.grep_buffers, { desc = 'picker grep buffers' })
 vim.keymap.set('n', '<leader>pb', snacks.picker.buffers, { desc = 'picker buffers' })
 vim.keymap.set('n', '<leader>pp', snacks.picker.projects, { desc = 'picker projects' })

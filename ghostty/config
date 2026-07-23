@@ -49,7 +49,7 @@ font-size = 12
 scrollback-limit = 10000
 clipboard-read = allow
 clipboard-paste-protection = false
-window-decoration = false
+window-decoration = true
 shell-integration = zsh
 window-padding-x =0
 window-padding-y = 0
@@ -113,3 +113,6 @@ palette = 12=#74b2ff
 palette = 13=#ae81ff
 palette = 14=#85dc85
 palette = 15=#e4e4e4
+
+
+window-decoration = server
