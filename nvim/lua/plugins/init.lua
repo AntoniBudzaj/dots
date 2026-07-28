@@ -1,5 +1,6 @@
 require('plugins.tokyonight')
 require('plugins.mason')
+require('plugins.conform')
 require('plugins.snacks')
 require('plugins.blink-cmp')
 require('plugins.telescope')
