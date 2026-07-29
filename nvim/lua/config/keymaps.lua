@@ -112,3 +112,5 @@ vim.keymap.set("n", "<", "<cmd>BufferLineMovePrev<CR>", { desc = "Move tab to th
 vim.keymap.set("n", "<leader>lg", function()
 	snacks.lazygit()
 end, { desc = "open lazygit" })
+
+vim.keymap.set('n','<leader>gd',snacks.picker.git_diff)

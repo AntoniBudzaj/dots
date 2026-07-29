@@ -11,9 +11,9 @@ opt.hlsearch = true
 opt.laststatus = 3
 opt.cursorline = true -- Highlight current line
 
-opt.tabstop = 3
-opt.shiftwidth = 3
-opt.softtabstop = 3
+opt.tabstop = 4
+opt.shiftwidth = 4
+opt.softtabstop = 4
 opt.expandtab = true
 
 
@@ -43,7 +43,7 @@ opt.undofile = true
 
 opt.clipboard = vim.env.SSH_TTY and "" or "unnamedplus" -- Sync with system clipboard
 opt.isfname:append('@-@')
-opt.scrolloff = 16
+opt.scrolloff = 8
 opt.signcolumn = 'yes'
 
 vim.o.cmdheight = 1
