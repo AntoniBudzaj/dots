@@ -47,10 +47,10 @@ vim.keymap.set("n", "<C-Right>", "<cmd>vertical resize -2<CR>", { desc = "increa
 -- ============================================================
 
 vim.keymap.set("n", "<leader>di", vim.diagnostic.open_float, { desc = "opens floatind diagnostics" })
-vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code Actions" })
+vim.keymap.set("n", "<C-CR>", vim.lsp.buf.code_action, { desc = "Code Actions" })
 vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename, { desc = "Code Rename" })
 vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Hover (alt)" })
-vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Goto Definition" })
+vim.keymap.set("n", "<F12>", vim.lsp.buf.definition, { desc = "Goto Definition" })
 vim.keymap.set("n", "<C-A-Enter>", function()
 	require("conform").format({ async = true, lsp_format = "never" })
 end, { desc = "Format buffer" })
@@ -66,8 +66,8 @@ end, { expr = true })
 --                         TERMINAL
 -- ============================================================
 -- open terminal
-vim.keymap.set("n", "<leader>tt", "<cmd>Term<CR>")
-vim.keymap.set("n", "<leader>tf", "<cmd>FloatermToggle<CR>")
+vim.keymap.set("n", "tt", "<cmd>Term<CR>")
+vim.keymap.set("n", "tf", "<cmd>FloatermToggle<CR>")
 -- navigate terminal
 vim.keymap.set("t", "<esc><esc>", "<c-\\><c-n>", { desc = "Enter Normal Mode" })
 vim.keymap.set("t", "<C-q>", "<C-\\><C-n><cmd>bd!<CR>", { desc = "Close terminal pane" })
