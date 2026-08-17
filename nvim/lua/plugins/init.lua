@@ -1,4 +1,4 @@
-require('plugins.tokyonight')
+require('plugins.themes')
 require('plugins.mason')
 require('plugins.conform')
 require('plugins.snacks')
