@@ -15,4 +15,5 @@ require('mason-lspconfig').setup({
          package_uninstalled = "✗",
       },
    },
+   automatic_enable = true,
 })

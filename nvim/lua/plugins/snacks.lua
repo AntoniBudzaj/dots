@@ -4,7 +4,6 @@ vim.pack.add({
 
 require("snacks").setup({
 	---@type snacks.Config
-	dashboard = { enabled = true },
 	explorer = { enabled = true },
 	picker = require("plugins.snacks.picker"),
 	lazygit = { enabled = true },

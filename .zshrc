@@ -6,7 +6,7 @@ if grep -qi microsoft /proc/version 2>/dev/null; then
 fi
 
 # antigen init
-source /home/antek/antigen.zsh
+source /home/$USER/antigen.zsh
 
 # antigen plugins
 antigen bundle zsh-users/zsh-syntax-highlighting
@@ -17,7 +17,7 @@ HISTSIZE=100000
 SAVEHIST=$HISTSIZE
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
-zstyle :compinstall filename '/home/antek/.zshrc'
+zstyle :compinstall filename '/home/$USER/.zshrc'
 
 # completion
 autoload -Uz compinit
@@ -37,7 +37,7 @@ setopt always_to_end # move cursor to end if word had one match
 # aliases
 alias la="ls -al"
 alias cdwin="cd /mnt/c/Users/Antbu"
-alias cdlin="cd /home/antek"
+alias cdlin="cd /home/$USER"
 alias cdg="cd /mnt/g/My Drive"
 alias open="explorer.exe ."
 alias nvims="nvim -S ~/.nvim-session.vim"
@@ -48,7 +48,7 @@ bindkey "^[[1;5D" backward-word  # Ctrl+Left
 bindkey "^[[3~" delete-char       # Delete key
 
 #env variables
-export PATH="$PATH:/home/antek/.dotnet/tools"
+export PATH="$PATH:/home/$USER/.dotnet/tools"
 
 antigen apply 
 
@@ -57,16 +57,16 @@ eval "$(zoxide init zsh)"
 
 
 # >>> Codex installer >>>
-export PATH="/home/antek/.local/bin:$PATH"
+export PATH="/home/$USER/.local/bin:$PATH"
 # <<< Codex installer <<<
 
-export PATH="$PATH:/opt/rocm/bin"
 
+export PATH="$PATH:/home/$USER/.cargo/bin"
 
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 # Added by LM Studio CLI (lms)
-export PATH="$PATH:/home/antek/.lmstudio/bin"
+export PATH="$PATH:/home/$USER/.lmstudio/bin"
 # End of LM Studio CLI section
 
 
