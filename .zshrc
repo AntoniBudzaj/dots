@@ -65,11 +65,12 @@ export PATH="$PATH:/home/$USER/.cargo/bin"
 
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
+alias sshlocal="shh admin@DESKTOP-UC7F5HA"
+# sshremote
+
 # Added by LM Studio CLI (lms)
 export PATH="$PATH:/home/$USER/.lmstudio/bin"
 # End of LM Studio CLI section
 
-
-
 # Load Angular CLI autocompletion.
-source <(ng completion script)
+#source <(ng completion script)
