@@ -26,8 +26,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		-- Built-in completion (only if using native)
 		if completion == "native" and client:supports_method("textDocument/completion") then
 			vim.lsp.completion.enable(true, client.id, args.buf, {
-				min_chars = 2,
-				debounce = 100,
+				min_chars = 1,
+				debounce = 50,
 			})
 		end
 
