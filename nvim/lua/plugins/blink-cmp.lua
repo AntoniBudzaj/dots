@@ -6,6 +6,27 @@ vim.pack.add({
 
 local cmp = require('blink.cmp')
 cmp.setup({
+  sources = {
+    providers = {
+      lsp = {
+        override = {
+          get_completions = function(self, context, callback)
+            if vim.bo[context.bufnr].filetype == 'svelte'
+              and context.trigger.kind == 'trigger_character'
+              and context.trigger.character == '$'
+            then
+              -- Svelte advertises `$`, but its TS provider rejects that trigger.
+              -- Request runes as ordinary completion while keeping auto-show.
+              context = vim.deepcopy(context)
+              context.trigger.kind = 'manual'
+              context.trigger.character = nil
+            end
+            return self:get_completions(context, callback)
+          end,
+        },
+      },
+    },
+  },
   keymap = {
     ['<C-space>'] = { 'show', 'show_documentation', 'hide_documentation' },
     ['<C-e>'] = { 'hide', 'fallback' },
