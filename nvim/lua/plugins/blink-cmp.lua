@@ -13,10 +13,10 @@ cmp.setup({
           get_completions = function(self, context, callback)
             if vim.bo[context.bufnr].filetype == 'svelte'
               and context.trigger.kind == 'trigger_character'
-              and context.trigger.character == '$'
+              and (context.trigger.character == '$' or context.trigger.character == ':')
             then
-              -- Svelte advertises `$`, but its TS provider rejects that trigger.
-              -- Request runes as ordinary completion while keeping auto-show.
+              -- Svelte rejects `$` in TS and reserves `:` for markup directives.
+              -- Ordinary requests also return runes and TS type annotations.
               context = vim.deepcopy(context)
               context.trigger.kind = 'manual'
               context.trigger.character = nil
