@@ -47,7 +47,7 @@ vim.keymap.set("n", "<C-Right>", "<cmd>vertical resize -2<CR>", { desc = "increa
 -- ============================================================
 
 vim.keymap.set("n", "<leader>di", vim.diagnostic.open_float, { desc = "opens floatind diagnostics" })
-vim.keymap.set("n", "<C-CR>", vim.lsp.buf.code_action, { desc = "Code Actions" })
+vim.keymap.set("n", "<M-CR>", vim.lsp.buf.code_action, { desc = "Code Actions" })
 vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename, { desc = "Code Rename" })
 vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Hover (alt)" })
 vim.keymap.set("n", "<F12>", vim.lsp.buf.definition, { desc = "Goto Definition" })
@@ -117,3 +117,11 @@ vim.keymap.set("n", "<leader>lg", function()
 end, { desc = "open lazygit" })
 
 vim.keymap.set("n", "<leader>gd", snacks.picker.git_diff)
+
+
+-- ============================================================
+--                          MD
+-- ============================================================
+vim.keymap.set("n", "<leader>mp", "<cmd>MarkdownPreviewToggle<CR>", {
+  desc = "Podgląd Markdown",
+})
