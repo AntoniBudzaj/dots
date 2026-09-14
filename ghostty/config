@@ -51,12 +51,7 @@ clipboard-read = allow
 clipboard-paste-protection = false
 window-decoration = true
 shell-integration = zsh
-window-padding-x =0
 window-padding-y = 0
-
-
-# Transparency
-background-opacity = 0.8
 
 keybind = ctrl+alt+v=new_split:right
 keybind = ctrl+alt+h=new_split:down
@@ -115,4 +110,6 @@ palette = 14=#85dc85
 palette = 15=#e4e4e4
 
 
-window-decoration = server
+window-decoration = client
+gtk-titlebar = true
+gtk-titlebar-style = tabs
