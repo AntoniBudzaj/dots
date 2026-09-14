@@ -1,0 +1,14 @@
+[Unit]
+Description=Rclone mount for Google Drive
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=notify
+ExecStart=/usr/bin/rclone mount gdrive: %h/Desktop/Gdrive --vfs-cache-mode writes
+ExecStop=/bin/fusermount -u %h/Desktop/Gdrive
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=default.target

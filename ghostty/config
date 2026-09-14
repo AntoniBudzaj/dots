@@ -110,6 +110,6 @@ palette = 14=#85dc85
 palette = 15=#e4e4e4
 
 
-window-decoration = client
+window-decoration = "server"
 gtk-titlebar = true
 gtk-titlebar-style = tabs
