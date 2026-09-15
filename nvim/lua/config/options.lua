@@ -8,7 +8,7 @@ opt.relativenumber = true
 opt.ignorecase = true
 opt.smartcase = true
 opt.hlsearch = true
-opt.laststatus = 3
+opt.laststatus = 2
 opt.cursorline = true -- Highlight current line
 
 opt.tabstop = 2
