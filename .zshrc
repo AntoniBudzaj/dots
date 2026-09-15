@@ -10,6 +10,7 @@ source /home/$USER/antigen.zsh
 
 # antigen plugins
 antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle zsh-users/zsh-autosuggestions
 
 # Lines configured by zsh-newuser-install
 HISTFILE=$HOME/.zsh_history
@@ -66,6 +67,7 @@ export PATH="$PATH:/home/$USER/.cargo/bin"
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 alias sshlocal="shh admin@DESKTOP-UC7F5HA"
+alias cluster-run-mock="./mock-server -proxy -realoc https://clusters.dev.antmicro.com ../specs/spec.json"
 # sshremote
 
 # Added by LM Studio CLI (lms)
