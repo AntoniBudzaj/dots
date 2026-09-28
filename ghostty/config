@@ -46,7 +46,7 @@
 
 font-family = hack nerd font
 font-size = 12
-scrollback-limit = 10000
+scrollback-limit = 100000000
 clipboard-read = allow
 clipboard-paste-protection = false
 window-decoration = true
@@ -92,3 +92,5 @@ gtk-titlebar = true
 gtk-titlebar-style = tabs
 theme = TokyoNight Night
 config-file = xfce.conf
+window-save-state=always
+shell-integration=zsh

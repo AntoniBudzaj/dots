@@ -15,7 +15,7 @@ antigen bundle zsh-users/zsh-autosuggestions
 # Lines configured by zsh-newuser-install
 HISTFILE=$HOME/.zsh_history
 HISTSIZE=100000
-SAVEHIST=$HISTSIZE
+SAVEHIST=100000
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
 zstyle :compinstall filename '/home/$USER/.zshrc'
@@ -68,7 +68,8 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 alias sshlocal="shh admin@DESKTOP-UC7F5HA"
 alias cluster-run-mock="./mock-server -proxy -realoc https://clusters.dev.antmicro.com ../specs/spec.json"
-# sshremote
+#
+export PATH="$PATH:/home/$USER/.config/scripts"
 
 # Added by LM Studio CLI (lms)
 export PATH="$PATH:/home/$USER/.lmstudio/bin"
