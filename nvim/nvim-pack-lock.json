@@ -89,6 +89,10 @@
       "rev": "2ffe79f1f021def8dd1fcd81deb16f1bb0d989f3",
       "src": "https://github.com/hrsh7th/nvim-cmp"
     },
+    "nvim-cokeline": {
+      "rev": "854849e6b853a6ee1f17d62c80ae37435cfb0a3e",
+      "src": "https://github.com/willothy/nvim-cokeline"
+    },
     "nvim-dbee": {
       "rev": "dda517694889a5d238d7aa407403984da9f80cc0",
       "src": "https://github.com/kndndrj/nvim-dbee"

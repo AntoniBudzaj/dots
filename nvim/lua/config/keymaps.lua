@@ -2,6 +2,49 @@ local opts = { noremap = true, silent = true }
 local builtin = require("telescope.builtin")
 local snacks = require("snacks")
 
+local function close_buffers_right()
+	local buffers = require("cokeline.buffers").get_visible()
+	local current = 1
+
+	for i, buf in ipairs(buffers) do
+		if buf.is_focused then
+			current = i
+			break
+		end
+	end
+
+	for i = #buffers, current + 1, -1 do
+		buffers[i]:delete()
+	end
+end
+
+local function close_buffers_left()
+	local buffers = require("cokeline.buffers").get_visible()
+	local current = 1
+
+	for i, buf in ipairs(buffers) do
+		if buf.is_focused then
+			current = i
+			break
+		end
+	end
+
+	for i = current - 1, 1, -1 do
+		buffers[i]:delete()
+	end
+end
+
+local function close_buffers_other()
+	local buffers = require("cokeline.buffers").get_visible()
+
+	for i = #buffers, 1, -1 do
+		local buf = buffers[i]
+		if not buf.is_focused then
+			buf:delete()
+		end
+	end
+end
+
 -- ============================================================
 --                         GENERAL
 -- ============================================================
@@ -52,7 +95,7 @@ vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename, { desc = "Code Rename" })
 vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Hover (alt)" })
 vim.keymap.set("n", "<F12>", vim.lsp.buf.definition, { desc = "Goto Definition" })
 vim.keymap.set("n", "<C-A-Enter>", function()
-	require("conform").format({ async = true, lsp_format = "never" })
+	require("conform").format({ async = true })
 end, { desc = "Format buffer" })
 vim.keymap.set("i", "<CR>", function()
 	if vim.fn.pumvisible() == 1 then
@@ -96,18 +139,15 @@ vim.keymap.set("v", "p", '"_dP', opts)
 --                         BUFFER
 -- ============================================================
 
-vim.keymap.set("n", "<Tab>", "<cmd>BufferLineCycleNext<CR>", { desc = "Next buffer" })
-vim.keymap.set("n", "<S-Tab>", "<cmd>BufferLineCyclePrev<CR>", { desc = "Previous buffer" })
+vim.keymap.set("n", "<Tab>", "<Plug>(cokeline-focus-next)", { desc = "Next buffer" })
+vim.keymap.set("n", "<S-Tab>", "<Plug>(cokeline-focus-prev)", { desc = "Previous buffer" })
 vim.keymap.set("n", "<leader>bb", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
-vim.keymap.set("n", "<C-w>", "<cmd>bd<CR>", { desc = "close buffer" })
-vim.keymap.set("n", "<leader>bl", "<cmd>BufferLineCloseLeft<Cr>", { desc = "close buffers to the left" })
-vim.keymap.set("n", "<leader>br", "<cmd>BufferLineCloseRight<Cr>", { desc = "close buffers to the rigth" })
-vim.keymap.set("n", "<leader>bs", "<cmd>BufferLineSortByTabs<Cr>", { desc = "sort buffer tabs" })
-vim.keymap.set("n", "<leader>bq", "<cmd>BufferLinePickClose<Cr>", { desc = "pick buffer to close" })
-vim.keymap.set("n", "<leader>bp", "<cmd>BufferLineTogglePin<Cr>", { desc = "pin buffer" })
-vim.keymap.set("n", "<leader>bo", "<cmd>BufferLineCloseOther<Cr>", { desc = "close other buffers then current" })
-vim.keymap.set("n", ">", "<cmd>BufferLineMoveNext<CR>", { desc = "Move tab to the right" })
-vim.keymap.set("n", "<", "<cmd>BufferLineMovePrev<CR>", { desc = "Move tab to the left" })
+vim.keymap.set("n", "bd", "<cmd>bd<CR>", { desc = "close buffer" })
+vim.keymap.set("n", "<leader>bl", close_buffers_left, { desc = "close buffers to the left" })
+vim.keymap.set("n", "<leader>br", close_buffers_right, { desc = "close buffers to the rigth" })
+vim.keymap.set("n", "<leader>bo", close_buffers_other, { desc = "close other buffers then current" })
+vim.keymap.set("n", ">", "<Plug>(cokeline-switch-next)", { desc = "Move tab to the right" })
+vim.keymap.set("n", "<", "<Plug>(cokeline-switch-prev)", { desc = "Move tab to the left" })
 
 -- ============================================================
 --                         GIT
@@ -118,10 +158,9 @@ end, { desc = "open lazygit" })
 
 vim.keymap.set("n", "<leader>gd", snacks.picker.git_diff)
 
-
 -- ============================================================
 --                          MD
 -- ============================================================
 vim.keymap.set("n", "<leader>mp", "<cmd>MarkdownPreviewToggle<CR>", {
-  desc = "Podgląd Markdown",
+	desc = "Podgląd Markdown",
 })
