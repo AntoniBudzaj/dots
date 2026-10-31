@@ -54,7 +54,7 @@ vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<cr>", { desc = "turn off search hi
 --                         PICKER
 -- ============================================================
 vim.keymap.set("n", "<leader><leader>", snacks.picker.files, { desc = "picker find files" })
-vim.keymap.set("n", "<leader>p", function()
+vim.keymap.set("n", "<C-S-p>", function()
 	snacks.picker()
 end, { desc = "open picker" })
 vim.keymap.set("n", "<leader>pg", snacks.picker.grep, { desc = "picker live grep" })
@@ -142,7 +142,7 @@ vim.keymap.set("v", "p", '"_dP', opts)
 vim.keymap.set("n", "<Tab>", "<Plug>(cokeline-focus-next)", { desc = "Next buffer" })
 vim.keymap.set("n", "<S-Tab>", "<Plug>(cokeline-focus-prev)", { desc = "Previous buffer" })
 vim.keymap.set("n", "<leader>bb", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
-vim.keymap.set("n", "<C-w>q", "<cmd>bd<CR>", { desc = "close buffer" })
+vim.keymap.set("n", "<A-w>", "<cmd>bd<CR>", { desc = "close buffer" })
 vim.keymap.set("n", "<leader>bl", close_buffers_left, { desc = "close buffers to the left" })
 vim.keymap.set("n", "<leader>br", close_buffers_right, { desc = "close buffers to the rigth" })
 vim.keymap.set("n", "<leader>bo", close_buffers_other, { desc = "close other buffers then current" })

@@ -83,6 +83,8 @@ keybind = alt+digit_7=unbind
 keybind = alt+digit_8=unbind
 keybind = alt+digit_9=unbind
 keybind = alt+digit_0=unbind
+keybind = ctrl+shift+`=toggle_command_palette
+keybind = ctrl+shift+p=unbind
 
 window-decoration = client
 gtk-titlebar = true

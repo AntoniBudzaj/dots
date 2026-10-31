@@ -1,3 +1,4 @@
+cd ~
 # check if wsl2
 if grep -qi microsoft /proc/version 2>/dev/null; then
   echo "Running in WSL"
