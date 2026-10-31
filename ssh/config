@@ -1,0 +1,9 @@
+Host gateway
+  HostName dev.antmicro.com
+  User abudzaj
+  Port 8022
+
+Host praca
+  HostName abudzaj.poz-baltyk.antmicro 
+  User abudzaj
+  ProxyJump gateway
