@@ -4,7 +4,7 @@ format = "${custom.host}$all"
 disabled = true
 
 [custom.host]
-command = "hostname -s | cut -c1-8"
+command = "hostname -s | cut -c1-7"
 when = true
 format = "[$output]($style) "
 style = "bold yellow"

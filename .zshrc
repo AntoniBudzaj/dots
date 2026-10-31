@@ -71,7 +71,8 @@ alias sshlocal="shh admin@DESKTOP-UC7F5HA"
 alias cluster-run-mock="./mock-server -proxy -realoc https://clusters.dev.antmicro.com ../specs/spec.json"
 alias gdrive="/home/$USER/Desktop/Gdrive"
 alias studia="/home/$USER/Desktop/Gdrive/Studia"
-#
+alias lg='lazygit'
+
 export PATH="$PATH:/home/$USER/.config/scripts"
 
 # Added by LM Studio CLI (lms)
@@ -86,3 +87,7 @@ export PATH="$PATH:/home/$USER/.lmstudio/bin"
 export NVM_DIR="$HOME/.config/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+if command -v tmux > /dev/null 2>&1; then
+  tmux new-session -A -s main
+fi
