@@ -88,14 +88,14 @@ vim.keymap.set("n", "<C-Right>", "<cmd>vertical resize -2<CR>", { desc = "increa
 -- ============================================================
 --                         LSP
 -- ============================================================
-
 vim.keymap.set("n", "<leader>di", vim.diagnostic.open_float, { desc = "opens floatind diagnostics" })
 vim.keymap.set("n", "<M-CR>", vim.lsp.buf.code_action, { desc = "Code Actions" })
 vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename, { desc = "Code Rename" })
 vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Hover (alt)" })
 vim.keymap.set("n", "<F12>", vim.lsp.buf.definition, { desc = "Goto Definition" })
-vim.keymap.set("n", "<C-A-Enter>", function()
-	require("conform").format({ async = true })
+vim.keymap.set("n", "<leder>gr", vim.lsp.buf.references, { desc = " Goto Refrences" })
+vim.keymap.set("n", "<leader>f", function()
+	require("conform").format({ async = true, lsp_format = "fallback" })
 end, { desc = "Format buffer" })
 vim.keymap.set("i", "<CR>", function()
 	if vim.fn.pumvisible() == 1 then
