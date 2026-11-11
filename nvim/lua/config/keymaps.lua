@@ -125,16 +125,20 @@ vim.keymap.set("t", "<C-l>", "<C-\\><C-n><C-w>l", { desc = "Move to right pane" 
 -- ============================================================
 vim.keymap.set("n", "<A-1>", snacks.picker.explorer, { desc = "toggle nvim tree" })
 
+
+-- ============================================================
+--                        SPECTRE
+-- ============================================================
+vim.keymap.set("n", "<leader>s", require("spectre").toggle, { desc = "toggle nvim tree" })
+
 -- ============================================================
 --                    SMART TEXT EDITING
 -- ============================================================
-
 -- Better indenting (stay in visual mode)
 vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", ">", ">gv")
 -- Better paste (doesn't replace clipboard with deleted text)
 vim.keymap.set("v", "p", '"_dP', opts)
-
 -- ============================================================
 --                         BUFFER
 -- ============================================================
@@ -155,7 +159,6 @@ vim.keymap.set("n", "<", "<Plug>(cokeline-switch-prev)", { desc = "Move tab to t
 vim.keymap.set("n", "<leader>lg", function()
 	snacks.lazygit()
 end, { desc = "open lazygit" })
-
 vim.keymap.set("n", "<leader>gd", snacks.picker.git_diff)
 
 -- ============================================================
