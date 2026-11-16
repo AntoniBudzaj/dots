@@ -3,6 +3,7 @@ require("lsp.vtsls")
 require("lsp.vue")
 require("lsp.svelte")
 require("lsp.eslint")
+require("lsp.rust_analyzer")
 
 vim.pack.add({
 	{ src = "https://github.com/neovim/nvim-lspconfig" },

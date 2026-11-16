@@ -11,7 +11,7 @@ require("mason").setup({
 })
 
 require("mason-lspconfig").setup({
-	ensure_installed = { "lua_ls", "vtsls", "vue_ls", "html", "cssls", "svelte", "gopls", "jsonls" },
+	ensure_installed = { "lua_ls", "vtsls", "vue_ls", "html", "cssls", "svelte", "gopls", "jsonls", "rust_analyzer", "taplo" },
 	ui = {
 		icons = {
 			package_installed = "✓",

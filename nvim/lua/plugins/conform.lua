@@ -17,5 +17,7 @@ require("conform").setup({
 		graphql = { "prettier" },
 		lua = { "stylua" },
 		python = { "isort", "black", "prettier" },
+		rust = { "rustfmt" },
+		toml = { "taplo" },
 	},
 })
