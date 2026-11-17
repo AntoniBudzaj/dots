@@ -42,6 +42,9 @@ alias cdlin="cd /home/$USER"
 alias cdg="cd /mnt/g/My Drive"
 alias open="explorer.exe ."
 alias nvims="nvim -S ~/.nvim-session.vim"
+alias gpc="(cd ~/.config && git pull)"
+alias gp="git pull"
+alias gP="git push"
 
 #binds
 bindkey "^[[1;5C" forward-word   # Ctrl+Right
@@ -86,3 +89,6 @@ export PATH="$PATH:/home/$USER/.lmstudio/bin"
 export NVM_DIR="$HOME/.config/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+#omp
+export PATH="/home/abudzaj/.cache/.bun/bin:$PATH"
