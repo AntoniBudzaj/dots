@@ -1,0 +1,8 @@
+{
+  "version": 1,
+  "name": "Midnight Teal",
+  "appearance": "dark",
+  "canvas": "#0e1417",
+  "accent": "#2dd4bf",
+  "css": "[data-user-message-bubble]{border-radius:16px !important;}[data-slot=\"composer-host\"]{border-radius:18px !important;}[data-slot=\"button\"]{border-radius:10px !important;}"
+}

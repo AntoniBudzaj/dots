@@ -1,0 +1,68 @@
+#!/usr/bin/env bash
+# sync-gitignore — keep ~/.config/.gitignore in sync with "only what I git-add is synced".
+#
+# Every top-level file/folder in ~/.config that is NOT tracked (not git-added) and NOT
+# already ignored gets appended to .gitignore. Anything you have `git add`-ed is left
+# alone, and lines you wrote by hand are never touched (the script only appends).
+#
+#   sync-gitignore            add new entries to .gitignore
+#   sync-gitignore -n         dry run: show what would be added
+#   sync-gitignore -a         also ignore untracked files nested inside tracked folders
+#   sync-gitignore -h         help
+#
+# To start syncing something: `git add <path>` it, and delete its line from .gitignore if present.
+set -euo pipefail
+
+dry=0 all=0
+for arg in "$@"; do
+  case $arg in
+    -n|--dry-run) dry=1 ;;
+    -a|--all)     all=1 ;;
+    -h|--help)    sed -n '2,13p' "${BASH_SOURCE[0]}" | sed 's/^# \{0,1\}//'; exit 0 ;;
+    *) echo "unknown option: $arg (try -h)" >&2; exit 2 ;;
+  esac
+done
+
+root=${XDG_CONFIG_HOME:-$HOME/.config}
+cd "$root"
+top=$(git rev-parse --show-toplevel 2>/dev/null) || { echo "not a git repo: $root" >&2; exit 1; }
+[[ $(realpath "$top") == "$(realpath .)" ]] || { echo "$root is not the repo root ($top)" >&2; exit 1; }
+
+# never ignore the folder this script lives in (it would hide the script itself)
+self=$(realpath "${BASH_SOURCE[0]}")
+selftop=""
+[[ $self == "$(realpath .)"/* ]] && { rel=${self#"$(realpath .)"/}; selftop=${rel%%/*}; }
+
+mapfile -d '' items < <(git ls-files -z --others --exclude-standard --directory --no-empty-directory)
+
+patterns=() skipped=()
+for item in "${items[@]}"; do
+  isdir=0; name=$item
+  [[ $name == */ ]] && { isdir=1; name=${name%/}; }
+  [[ $name == .gitignore ]] && continue
+  [[ -n $selftop && ${name%%/*} == "$selftop" ]] && continue
+  if [[ $name == *$'\n'* ]]; then skipped+=("$name (newline in name)"); continue; fi
+  if [[ $name == */* ]] && (( ! all )); then skipped+=("$name"); continue; fi
+  esc=$(printf '%s' "$name" | sed -e 's/[][*?\\]/\\&/g' -e 's/^[#!]/\\&/' -e 's/[[:space:]]$/\\&/')
+  (( isdir )) && patterns+=("/$esc/") || patterns+=("/$esc")
+done
+
+if (( ${#patterns[@]} == 0 )); then
+  echo "Nothing to add: .gitignore is already in sync."
+else
+  echo "New entries (${#patterns[@]}):"
+  printf '  %s\n' "${patterns[@]}"
+  if (( dry )); then
+    echo "(dry run, .gitignore not changed)"
+  else
+    [[ -s .gitignore && $(tail -c1 .gitignore | wc -l) -eq 0 ]] && echo >> .gitignore
+    { echo "# sync-gitignore $(date +%F)"; printf '%s\n' "${patterns[@]}"; } >> .gitignore
+    echo "Appended to $root/.gitignore — remember: git add .gitignore"
+  fi
+fi
+
+if (( ${#skipped[@]} )); then
+  echo
+  echo "Left alone (untracked files inside tracked folders; use -a to ignore them too):"
+  printf '  %s\n' "${skipped[@]}"
+fi
