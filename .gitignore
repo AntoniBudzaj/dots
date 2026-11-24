@@ -48,3 +48,36 @@
 /waybar/
 /xsettingsd/
 /yad.conf
+# sync-gitignore 2026-11-24
+/.wrangler/
+/CurseForge/
+/LM Studio/
+/LM-Studio/
+/RPG Maker MV/
+/ai.opencode.desktop/
+/antigravity/
+/astro/
+/background
+/baloofilerc
+/btop/
+/chromium/
+/coc/
+/com.tablecruncher/
+/comfy-cli/
+/corectrl/
+/discord/
+/fltk.org/
+/freerdp/
+/glow/
+/ltspice/
+/obsidian/
+/opencode/
+/ow-electron/
+/proton-run.yaml
+/r2modman/
+/r2modmanPlus-local/
+/remmina/
+/rpgmenu-config.json
+/totem/
+/unity3d/
+/zen/

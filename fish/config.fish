@@ -19,3 +19,7 @@ if not string match -q -- $PNPM_HOME $PATH
   set -gx PATH "$PNPM_HOME" $PATH
 end
 # pnpm end
+
+
+# Added by Antigravity CLI installer
+set -gx PATH "/home/antek/.local/bin" $PATH
