@@ -74,6 +74,7 @@ alias cluster-run-mock="./mock-server -proxy -realoc https://clusters.dev.antmic
 alias gdrive="/home/$USER/Desktop/Gdrive"
 alias studia="/home/$USER/Desktop/Gdrive/Studia"
 alias lg='lazygit'
+alias drmc="docker container rm $(docker ps -a -q)"
 
 export PATH="$PATH:/home/$USER/.config/scripts"
 
