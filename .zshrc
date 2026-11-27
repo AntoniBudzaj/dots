@@ -42,9 +42,21 @@ alias cdlin="cd /home/$USER"
 alias cdg="cd /mnt/g/My Drive"
 alias open="explorer.exe ."
 alias nvims="nvim -S ~/.nvim-session.vim"
-alias gpc="(cd ~/.config && git pull)"
+alias dotp="(cd ~/.config && git pull)"
 alias gp="git pull"
 alias gP="git push"
+alias sshserwerl="ssh admin@DESKTOP-UC7F5HA"
+alias cluster-run-mock="./mock-server -proxy -realoc https://clusters.dev.antmicro.com ../specs/spec.json"
+alias gdrive="/home/$USER/Desktop/Gdrive"
+alias studia="/home/$USER/Desktop/Gdrive/Studia"
+alias lg='lazygit'
+alias dockerrmc="docker container rm $(docker ps -a -q)"
+alias tmuxs="tmux attach \; choose-tree -Zs"
+
+dotcommit() {
+  [ -z "$*" ] && { echo "usage: dotcommit <message>" >&2; return 1; }
+  (cd ~/.config && git commit -am "$*" && git push)
+}
 
 #binds
 bindkey "^[[1;5C" forward-word   # Ctrl+Right
@@ -69,13 +81,6 @@ export PATH="$PATH:/home/$USER/.cargo/bin"
 
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
-alias sshlocal="shh admin@DESKTOP-UC7F5HA"
-alias cluster-run-mock="./mock-server -proxy -realoc https://clusters.dev.antmicro.com ../specs/spec.json"
-alias gdrive="/home/$USER/Desktop/Gdrive"
-alias studia="/home/$USER/Desktop/Gdrive/Studia"
-alias lg='lazygit'
-alias drmc="docker container rm $(docker ps -a -q)"
-alias tmuxs="tmux attach \; choose-tree -Zs"
 
 export PATH="$PATH:/home/$USER/.config/scripts"
 
