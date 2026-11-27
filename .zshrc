@@ -75,6 +75,7 @@ alias gdrive="/home/$USER/Desktop/Gdrive"
 alias studia="/home/$USER/Desktop/Gdrive/Studia"
 alias lg='lazygit'
 alias drmc="docker container rm $(docker ps -a -q)"
+alias tmuxs="tmux attach \; choose-tree -Zs"
 
 export PATH="$PATH:/home/$USER/.config/scripts"
 
